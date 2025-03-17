@@ -3,7 +3,7 @@
 /*
 Plugin Name: Cookie Compliance
 Plugin URI: https://github.com/ministryofjustice/cookie-compliance
-Description: Functions that are commonly used across the Hale Platform.
+Description: Cookie consent banner
 Version: 1.0.0
 Author: Ministry of Justice
 Author URI: https://github.com/ministryofjustice
