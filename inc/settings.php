@@ -2,7 +2,11 @@
 
 
 function cookie_compliance_scripts() {  
-    wp_register_style('cookie-compliance-styles', plugins_url('../dist/css/style.min.css', __FILE__));
+
+    wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
+    wp_enqueue_style("cookie-compliance-tailwind");
+
+    wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__));
     wp_enqueue_style("cookie-compliance-styles");
 }
 add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');

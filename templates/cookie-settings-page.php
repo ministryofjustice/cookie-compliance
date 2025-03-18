@@ -12,7 +12,7 @@ flush();
 
     <h3>Google Analytics 4</h3>
     <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. We do not allow Google Analytics to use or share the data about how you use this site.</p>
-
+    <div class="mb-8 font-bold">skjdlkjdslks</div>
     <table>
         <thead>
         <tr>
