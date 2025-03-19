@@ -22,8 +22,9 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-accept" type="submit"
                 class="text-white bg-green-900 hover:bg-green-950
-                        font-medium px-5 py-2.5 me-2 mb-2
-                        focus:text-black focus:bg-yellow-400 focus:outline-none
+                    font-medium px-5 py-2.5 me-2 mb-2
+                    focus:text-black focus:bg-yellow-400 focus:outline-none
+                    w-full sm:w-auto
                 "
             >
                 Accept analytics cookies
@@ -31,8 +32,9 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-decline" type="submit"
                 class="text-white bg-green-900 hover:bg-green-950
-                        font-medium px-5 py-2.5 me-2 mb-2
-                        focus:text-black focus:bg-yellow-400 focus:outline-none
+                    font-medium px-5 py-2.5 me-2 mb-2
+                    focus:text-black focus:bg-yellow-400 focus:outline-none
+                    w-full sm:w-auto
                 "
             >
                 Reject analytics cookies
@@ -43,6 +45,7 @@ if ($display_cookie_banner) {
                     text-sky-700 focus:bg-yellow-400 hover:text-sky-900 focus:text-black focus:bg-yellow
                     underline focus:no-underline border-b-4 focus:border-black focus:outline-none
                     px-3 py-2.5
+                    inline-block w-full sm:w-auto text-center
                 "
             >
                 View cookies
