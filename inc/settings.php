@@ -35,3 +35,9 @@ function cookie_compliance_template_redirect() {
     }
 }
 add_action('template_redirect', 'cookie_compliance_template_redirect');
+
+
+function cookie_compliance_render_banner() {
+    include(plugin_dir_path(dirname(__FILE__)) . 'templates/cookie-banner.php');
+}
+add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
