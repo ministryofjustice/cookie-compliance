@@ -14,3 +14,5 @@ License: MIT
 */
 
 include 'inc/settings.php';
+
+include 'inc/admin-page.php';
