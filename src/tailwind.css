@@ -1,4 +1,5 @@
 /* @tailwind base;  remvoed due to default styling*/   
+
 @tailwind components;
 @tailwind utilities;
 

@@ -4,97 +4,179 @@ get_header();
 flush();
     ?>
 
-<div id="primary">
-    <h1>Cookie settings</h1>
-    <p>Here you can manage your cookie settings for this website.</p>
+<main id="primary" class="px-3 text-lg">
+    <h1>Cookies</h1>
+    <p class="w-full w-max-[666px]">
+        Cookies are small files saved on your computer, tablet or phone when you visit a website.
+    </p>
 
-    <h2>Marketing cookies</h2>
-
-    <h3>Google Analytics 4</h3>
-    <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. We do not allow Google Analytics to use or share the data about how you use this site.</p>
-    <div class="mb-8 font-bold">skjdlkjdslks</div>
-    <table>
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Purpose</th>
-            <th scope="col">Expires</th>
-        </tr>
-        </thead>
-        <tbody>
-                                                <tr>
-                <th scope="row">_ga</th>
-                <td>Used to distinguish users.</td>
-                <td>2 years</td>
-            </tr>
-                                                    <tr>
-                <th scope="row">_ga_JYSFWSDPV7</th>
-                <td>Used to persist session state.</td>
-                <td >2 years</td>
-            </tr>
-            
-        </tbody>
-    </table>
-    
-    <h2>Third-party cookies</h2>
-
-    <h3>Video Streaming</h3>
-    <p>We have no control over cookies set by third parties. You can turn them off, but not through us.</p>
-
-    <h3>Social Media</h3>
-    <p>If you share a link to a page, the service you share it on (for example, Facebook) may set a cookie.</p>
+    <p class="w-full w-max-[666px]">
+        We use cookies to make this site work and collect information aout how you use our service.  
+    </p>
 
     <h2>Essential cookies</h2>
 
-    <h3>All users</h3>
-    <p>These cookies will always need to be on because they make our site work.</p>
-
-    <table>
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Purpose</th>
-            <th scope="col">Expires</th>
-        </tr>
+    <p class="w-full w-max-[666px]">
+        Essential cookies keep your information secure whilst you use this service.  We do not need to ask permission to use them.
+    </p>
+    
+    <table class="w-full text-left border-collapse">
+        <thead class="">
+            <tr class="bg-white">
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Cookie name
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Purpose
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Expires
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Current status
+                </th>
+            </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row" >wordpress_test_cookie</th>
-                <td>This is used to test whether the browser accepts cookies</td>
-                <td >When you close your browser</td>
+        <tr class="bg-white">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
             </tr>
-                                                    <tr>
-                <th scope="row" class="ccfw-banner__table-header">PHPSESSID</th>
-                <td>This is used to link your device to the information sent to the server from your browser. It is typically used to avoid you having to retype information when moving from one page to another.</td>
-                <td>When you close your browser</td>
+            <tr class="bg-white border-b border-gray-900">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
             </tr>
-                                                    <tr>
-                <th scope="row" class="ccfw-banner__table-header">ccfw-banner-hidden</th>
-                <td>Lets us know you have chosen which cookies are used so we can stop the cookie banner appearing when you return to the site.</td>
-                <td>1 year</td>
-            </tr>
-                                                    <tr>
-                <th scope="row" class="ccfw-banner__table-header">ccfw-gtm-allowed</th>
-                <td>Lets us know you have accepted certain cookies so we can stop them loading when you return to the site.</td>
-                <td>1 year</td>
-            </tr>
-                                                    <tr>
-                <th scope="row" class="ccfw-banner__table-header">ccfw-time</th>
-                <td>This is used to store the cookie expiry dates so we know when to ask you again for consent.</td>
-                <td>1 year</td>
-            </tr>
-                                                    <tr>
-                <th scope="row" class="ccfw-banner__table-header">info_banner_dismissed</th>
-                <td>This remembers if an information banner has been dismissed and prevents it from being displayed again.</td>
-                <td>When you close your browser</td>
-            </tr>
-            
         </tbody>
     </table>
 
-    <h3>Logged in users</h3>
-    <p>These cookies will always need to be on because they make our site work.</p>
-</div>
+    <h2>Analytical cookies</h2>
+
+    <p class="w-full w-max-[666px]">
+        With your permission, we use Google Analytics to collect data about how you use
+        this service.  This information helps us to improve our service.
+    </p>
+
+    <p class="w-full w-max-[666px]">
+        Google is not allowed to use or share our analytics data with anyone.
+    </p>
+
+    <p class="w-full w-max-[666px]">
+        Google Analytics stores anonymized information about:
+    </p>
+    
+    <ul class="w-full w-max-[666px]">
+        <li>the pages you visit</li>
+        <li>how long you spend on each page</li>
+        <li>how you arrived at the site</li>
+        <li>what you click on while you visit the site</li>
+        <li>the device and browser you use</li>
+    </ul>
+    
+    <table class="w-full text-left border-collapse">
+        <thead class="">
+            <tr class="bg-white">
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Cookie name
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Purpose
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Expires
+                </th>
+                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    Current status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="bg-white border-solid border-t-0 border-x-0 border-b border-gray-900">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    xy
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+            </tr>
+            <tr class="bg-white">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
+                    x
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Change your cookie settings</h2>
+    <form>
+        <div class="">
+            <fieldset class="border-none px-0 mb-4">
+                <legend class="text-xl font-bold">
+                    Do you want to accept analytical cookies?
+                </legend>
+                <div id="analytical-cookies-control" class="">
+                    <div class="inline-block w-full sm:w-auto pe-4">
+                        <input id="accept-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="yes">
+                        <label for="accept-analytical-cookies" class="">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="inline-block w-full sm:w-[40%]">
+                        <input id="reject-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="no">
+                        <label for="reject-analytical-cookies" class="">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
+        <button
+            id="save-cookies-button" name="changes" type="submit" value="saved" data-module=""
+            class="text-white bg-green-900 hover:bg-green-950
+                    font-medium px-5 py-2.5 me-2 mb-2
+                    focus:text-black focus:bg-yellow-400 focus:outline-none
+                    w-full sm:w-auto
+                "
+        >
+            Save cookie settings
+        </button>
+    </form>
+
+</main>
 <?php
 flush();
 get_footer();
