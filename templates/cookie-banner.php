@@ -3,6 +3,8 @@ $site_name = !empty(get_bloginfo()) ? get_bloginfo() : "this site";
 $site_url = get_site_url();
 /* */
 $display_cookie_banner = 1;
+require_once("components.php");
+
 if ($display_cookie_banner) {
 ?>
 <div id="cookie-compliance-banner" data-nosnippet="true" class="bg-gray-200 w-full py-[1rem]">
@@ -19,37 +21,9 @@ if ($display_cookie_banner) {
             </p>
         </div>
         <div class="text-lg">
-            <button
-                id="cookie-accept" type="submit"
-                class="text-white bg-green-900 hover:bg-green-950
-                    font-medium px-5 py-2.5 me-2 mb-2
-                    focus:text-black focus:bg-yellow-400 focus:outline-none
-                    w-full sm:w-auto
-                "
-            >
-                Accept analytics cookies
-            </button>
-            <button
-                id="cookie-decline" type="submit"
-                class="text-white bg-green-900 hover:bg-green-950
-                    font-medium px-5 py-2.5 me-2 mb-2
-                    focus:text-black focus:bg-yellow-400 focus:outline-none
-                    w-full sm:w-auto
-                "
-            >
-                Reject analytics cookies
-            </button>
-            <a
-                href="<?php echo $site_url;?>/cookies" id="cookie-page-link"
-                class="
-                    text-sky-700 focus:bg-yellow-400 hover:text-sky-900 focus:text-black focus:bg-yellow
-                    underline focus:no-underline border-b-4 focus:border-black focus:outline-none
-                    px-3 py-2.5
-                    inline-block w-full sm:w-auto text-center
-                "
-            >
-                View cookies
-            </a>
+            <?php echo button("Accept analytics cookies","cookie-accept","submit"); ?>
+            <?php echo button("Reject analytics cookies","cookie-decline","submit"); ?>
+            <?php echo hyperlink("View cookies",$site_url."/cookies","cookie-page-link","px-3 py-2.5 inline-block w-full sm:w-auto text-center"); ?>
         </div>
     </div>
 </div>
