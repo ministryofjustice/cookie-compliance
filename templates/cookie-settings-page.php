@@ -112,25 +112,7 @@ require_once("components.php");
     <h2>Change your cookie settings</h2>
    
     <div class="">
-        <fieldset class="border-none px-0 mb-4">
-            <legend class="text-xl font-bold">
-                Do you want to accept analytical cookies?
-            </legend>
-            <div id="analytical-cookies-control" class="">
-                <div class="inline-block w-full sm:w-auto pe-4">
-                    <input id="accept-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="yes">
-                    <label for="accept-analytical-cookies" class="">
-                        Yes
-                    </label>
-                </div>
-                <div class="inline-block w-full sm:w-[40%]">
-                    <input id="reject-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="no">
-                    <label for="reject-analytical-cookies" class="">
-                        No
-                    </label>
-                </div>
-            </div>
-        </fieldset>
+        <?php echo yesNoRadio("Do you want to accept analytical cookies?", "analytical-cookies-control"); ?>
     </div>
     <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
     <?php echo button("Save cookie settings", "save-cookies-button", "submit", $class="", $name="changes", $value="saved");?>
