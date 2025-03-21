@@ -2,7 +2,10 @@
 get_header();
 
 flush();
-    ?>
+
+require_once("components.php");
+
+?>
 
 <main id="primary" class="px-3 text-lg">
 
@@ -155,41 +158,31 @@ flush();
     </table>
     <h2>Change your cookie settings</h2>
    
-        <div class="">
-            <fieldset class="border-none px-0 mb-4">
-                <legend class="text-xl font-bold">
-                    Do you want to accept analytical cookies?
-                </legend>
-                <div id="analytical-cookies-control" class="">
-                    <div class="inline-block w-full sm:w-auto pe-4">
-                        <input id="accept-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="yes">
-                        <label for="accept-analytical-cookies" class="">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="inline-block w-full sm:w-[40%]">
-                        <input id="reject-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="no">
-                        <label for="reject-analytical-cookies" class="">
-                            No
-                        </label>
-                    </div>
+    <div class="">
+        <fieldset class="border-none px-0 mb-4">
+            <legend class="text-xl font-bold">
+                Do you want to accept analytical cookies?
+            </legend>
+            <div id="analytical-cookies-control" class="">
+                <div class="inline-block w-full sm:w-auto pe-4">
+                    <input id="accept-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="yes">
+                    <label for="accept-analytical-cookies" class="">
+                        Yes
+                    </label>
                 </div>
-            </fieldset>
-        </div>
-        <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
-        <button
-            id="save-cookies-button" name="changes" type="submit" value="saved" data-module=""
-            class="text-white bg-green-900 hover:bg-green-950
-                    font-medium px-5 py-2.5 me-2 mb-2
-                    focus:text-black focus:bg-yellow-400 focus:outline-none
-                    w-full sm:w-auto
-                "
-        >
-            Save cookie settings
-        </button>
-   
-
+                <div class="inline-block w-full sm:w-[40%]">
+                    <input id="reject-analytical-cookies" class="" type="radio" name="analytical-cookie-options" value="no">
+                    <label for="reject-analytical-cookies" class="">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
+    <?php echo button("Save cookie settings", "save-cookies-button", "submit", $class="", $name="changes", $value="saved");?>
 </main>
 <?php
 flush();
 get_footer();
+
