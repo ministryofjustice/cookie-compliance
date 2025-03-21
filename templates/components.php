@@ -25,3 +25,20 @@ function hyperlink($text, $href, $id = "", $class = "") {
 		>$text</a>
 	";
 }
+
+function tableHeading($text, $class="", $scope="col") {
+
+	return "
+		<th scope='$scope' class='px-6 first:ps-0 last:pe-0 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 $class'>
+			$text
+		</th>
+	";
+}
+
+function tableCell($text, $class="") {
+	return "
+		<td class='px-6 first:ps-0 last:pe-0 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 $class'>
+			$text
+		</td>
+	";
+}

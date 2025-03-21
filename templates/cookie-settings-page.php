@@ -38,49 +38,25 @@ require_once("components.php");
     
     <table class="w-full text-left border-collapse">
         <thead class="">
-            <tr class="bg-white">
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Cookie name
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Purpose
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Expires
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Current status
-                </th>
+            <tr class="">
+                <?php echo tableHeading("Cookie name"); ?>
+                <?php echo tableHeading("Purpose"); ?>
+                <?php echo tableHeading("Expires"); ?>
+                <?php echo tableHeading("Current status"); ?>
             </tr>
         </thead>
         <tbody>
-        <tr class="bg-white">
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
+            <tr class="">
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
             </tr>
-            <tr class="bg-white border-b border-gray-900">
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
+            <tr class="">
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
             </tr>
         </tbody>
     </table>
@@ -110,49 +86,26 @@ require_once("components.php");
     
     <table class="w-full text-left border-collapse">
         <thead class="">
-            <tr class="bg-white">
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Cookie name
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Purpose
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Expires
-                </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    Current status
-                </th>
+            <tr class="">
+                <?php echo tableHeading("Cookie name"); ?>
+                <?php echo tableHeading("Purpose"); ?>
+                <?php echo tableHeading("Expires"); ?>
+                <?php echo tableHeading("Current status"); ?>
+            </tr>
             </tr>
         </thead>
         <tbody>
-        <tr class="bg-white border-solid border-t-0 border-x-0 border-b border-gray-900">
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    xy
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
+            <tr class="">
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
             </tr>
-            <tr class="bg-white">
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900">
-                    x
-                </td>
+            <tr class="">
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("xyz"); ?>
             </tr>
         </tbody>
     </table>
