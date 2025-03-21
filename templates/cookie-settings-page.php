@@ -5,6 +5,19 @@ flush();
     ?>
 
 <main id="primary" class="px-3 text-lg">
+
+    <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden">
+      
+      <div class="bg-green-800 border-solid border-4 border-green-800" role="alert">
+        <div>
+          <h2 class="text-white text-lg pt-[5px] pb-[5px] pl-[20px] m-0 has-text-color">Success</h2>
+        </div>
+        <div class="bg-white p-[20px]">
+            <h3 class="m-0">Your cookie settings were saved</h3>
+        </div>
+      </div>
+    </div>
+
     <h1>Cookies</h1>
     <p class="w-full w-max-[666px]">
         Cookies are small files saved on your computer, tablet or phone when you visit a website.
@@ -141,7 +154,7 @@ flush();
         </tbody>
     </table>
     <h2>Change your cookie settings</h2>
-    <form>
+   
         <div class="">
             <fieldset class="border-none px-0 mb-4">
                 <legend class="text-xl font-bold">
@@ -174,7 +187,7 @@ flush();
         >
             Save cookie settings
         </button>
-    </form>
+   
 
 </main>
 <?php

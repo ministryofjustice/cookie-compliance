@@ -8,6 +8,9 @@ function cookie_compliance_scripts() {
 
     wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__));
     wp_enqueue_style("cookie-compliance-styles");
+
+    wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
+    wp_enqueue_script('cookie-consent-script');
 }
 add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');
 
