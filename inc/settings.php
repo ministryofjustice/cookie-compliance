@@ -10,6 +10,17 @@ function cookie_compliance_scripts() {
     wp_enqueue_style("cookie-compliance-styles");
 
     wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
+
+    $options = get_option('cookie_compliance_settings');
+    if (!empty($options) && array_key_exists('gtm_code', $options) && !empty($options['gtm_code']) ) {
+        wp_localize_script(
+            'cookie-consent-script',
+            'cookie_consent_object',
+            array(
+                'gtmcode' => $options['gtm_code'],
+            )
+        );
+    }
     wp_enqueue_script('cookie-consent-script');
 }
 add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');
