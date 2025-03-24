@@ -6,6 +6,7 @@ flush();
 require_once("components.php");
 
 $radios_component = plugin_dir_path(__DIR__) . 'template-parts/components/radios.php';
+$tag_component = plugin_dir_path(__DIR__) . 'template-parts/components/radios.php';
 
 
 ?>
@@ -50,10 +51,22 @@ $radios_component = plugin_dir_path(__DIR__) . 'template-parts/components/radios
         </thead>
         <tbody>
             <tr class="">
-                <?php echo tableCell("xyz"); ?>
-                <?php echo tableCell("xyz"); ?>
-                <?php echo tableCell("xyz"); ?>
-                <?php echo tableCell("xyz"); ?>
+                <?php echo tableCell("wordpress_test_cookie", "whitespace-nowrap"); ?>
+                <?php echo tableCell("This is used to test whether the browser accepts cookies"); ?>
+                <?php echo tableCell("When you close your browser"); ?>
+                <?php echo tableCell(!empty($_COOKIE["wordpress_test_cookie"]) ? "Active" : "Inactive", "whitespace-nowrap"); ?>
+            </tr>
+            <tr class="">
+                <?php echo tableCell("PHPSESSID", "whitespace-nowrap"); ?>
+                <?php echo tableCell("This is used to link your device to the information sent to the server from your browser. It is typically used to avoid you having to retype information when moving from one page to another."); ?>
+                <?php echo tableCell("When you close your browser"); ?>
+                <?php echo tableCell(!empty($_COOKIE["PHPSESSID"]) ? "Active" : "Inactive", "whitespace-nowrap"); ?>
+            </tr>
+            <tr class="">
+                <?php echo tableCell("info_banner_dismissed", "whitespace-nowrap"); ?>
+                <?php echo tableCell("This remembers if an information banner has been dismissed and prevents it from being displayed again."); ?>
+                <?php echo tableCell("When you close your browser"); ?>
+                <?php echo tableCell(!empty($_COOKIE["info_banner_dismissed"]) ? "Active" : "Inactive", "whitespace-nowrap"); ?>
             </tr>
             <tr class="">
                 <?php echo tableCell("xyz"); ?>
