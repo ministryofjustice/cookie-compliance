@@ -1,6 +1,9 @@
 <?php 
 $site_name = !empty(get_bloginfo()) ? get_bloginfo() : "this site"; 
 $site_url = get_site_url();
+
+$button_component = plugin_dir_path(__DIR__) . 'template-parts/components/button.php';
+
 /* */
 $display_cookie_banner = 1;
 require_once("components.php");
@@ -24,6 +27,22 @@ if ($display_cookie_banner) {
             <?php echo button("Accept analytics cookies","cookie-accept","submit"); ?>
             <?php echo button("Reject analytics cookies","cookie-decline","submit"); ?>
             <?php echo hyperlink("View cookies",$site_url."/cookies","cookie-page-link","px-3 py-2.5 inline-block w-full sm:w-auto text-center"); ?>
+
+ 		<?php
+
+		// Add button component	
+		if (file_exists($button_component)) {
+		    load_template($button_component, false, [
+			'text'  => 'Accept Cookies',
+			'id'    => 'cookie-accept',
+			'type'  => 'button',
+			'class' => 'extra-styles',
+		    ]);
+		} else {
+		    echo '<!-- Template not found: ' . esc_html($button_component) . ' -->';
+		}
+		?>
+
         </div>
     </div>
 </div>
