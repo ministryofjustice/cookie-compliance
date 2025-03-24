@@ -24,26 +24,36 @@ if ($display_cookie_banner) {
             </p>
         </div>
         <div class="text-lg">
-            <?php echo button("Accept analytics cookies","cookie-accept","submit"); ?>
-            <?php echo button("Reject analytics cookies","cookie-decline","submit"); ?>
+        <?php
+
+            // Accept button	
+            if (file_exists($button_component)) {
+                load_template($button_component, false, [
+                'text'  => 'Accept analytics cookies',
+                'id'    => 'cookie-accept',
+                'type'  => 'submit',
+                'class' => '',
+                ]);
+            } else {
+                echo '<!-- Template not found: ' . esc_html($button_component) . ' -->';
+            }
+            ?> 		<?php
+
+            // Reject button	
+            if (file_exists($button_component)) {
+                load_template($button_component, false, [
+                'text'  => 'Reject analytics cookies',
+                'id'    => 'cookie-decline',
+                'type'  => 'submit',
+                'class' => '',
+                ]);
+            } else {
+                echo '<!-- Template not found: ' . esc_html($button_component) . ' -->';
+            }
+            ?>
             <?php echo hyperlink("View cookies",$site_url."/cookies","cookie-page-link","px-3 py-2.5 inline-block w-full sm:w-auto text-center"); ?>
 
- 		<?php
-
-		// Add button component	
-		if (file_exists($button_component)) {
-		    load_template($button_component, false, [
-			'text'  => 'Accept Cookies',
-			'id'    => 'cookie-accept',
-			'type'  => 'button',
-			'class' => 'extra-styles',
-		    ]);
-		} else {
-		    echo '<!-- Template not found: ' . esc_html($button_component) . ' -->';
-		}
-		?>
-
-        </div>
+ 		</div>
     </div>
 </div>
 

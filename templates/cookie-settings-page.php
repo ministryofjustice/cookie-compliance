@@ -5,9 +5,12 @@ flush();
 
 require_once("components.php");
 
+$radios_component = plugin_dir_path(__DIR__) . 'template-parts/components/radios.php';
+
+
 ?>
 
-<main id="primary" class="px-3 text-lg">
+<main id="primary" class='px-3 text-lg'>
 
     <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden">
       
@@ -110,12 +113,21 @@ require_once("components.php");
         </tbody>
     </table>
     <h2>Change your cookie settings</h2>
-   
-    <div class="">
-        <?php echo yesNoRadio("Do you want to accept analytical cookies?", "analytical-cookies-control"); ?>
-    </div>
-    <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
-    <?php echo button("Save cookie settings", "save-cookies-button", "submit", $class="", $name="changes", $value="saved");?>
+    <form>
+        <?php
+            if (file_exists($radios_component)) {
+                load_template($radios_component, false, [
+                'text'  => '<h3>Do you want to accept analytical cookies?</h3>',
+                'id'    => 'analytical-cookies-control',
+                ]);
+            } else {
+                echo '<!-- Template not found: ' . esc_html($radios_component) . ' -->';
+            }
+        ?>
+        <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
+        <?php echo button("Save cookie settings", "save-cookies-button", "submit", $class="", $name="changes", $value="saved");?>
+        
+    </form>
 </main>
 <?php
 flush();

@@ -20,7 +20,7 @@ $args = wp_parse_args($args, $defaults);
     class="text-white bg-green-900 hover:bg-green-950
         font-medium px-5 py-2.5 me-2 mb-2
         focus:text-black focus:bg-yellow-400 focus:outline-none
-        w-full sm:w-auto
+        w-full sm:w-auto cursor-pointer
         <?php echo esc_attr($args['class']); ?>"
 >
     <?php echo esc_html($args['text']); ?>
