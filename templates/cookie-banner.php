@@ -22,7 +22,7 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-accept" type="submit"
                 class="text-white bg-green-900 hover:bg-green-950
-                    font-medium px-5 py-2.5 me-2 mb-2
+                    font-medium px-5 py-2.5 me-2 mb-2 cursor-pointer
                     focus:text-black focus:bg-yellow-400 focus:outline-none
                     w-full sm:w-auto
                 "
@@ -32,7 +32,7 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-decline" type="submit"
                 class="text-white bg-green-900 hover:bg-green-950
-                    font-medium px-5 py-2.5 me-2 mb-2
+                    font-medium px-5 py-2.5 me-2 mb-2 cursor-pointer
                     focus:text-black focus:bg-yellow-400 focus:outline-none
                     w-full sm:w-auto
                 "
