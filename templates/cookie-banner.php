@@ -51,9 +51,15 @@ if ($display_cookie_banner) {
                 echo '<!-- Template not found: ' . esc_html($button_component) . ' -->';
             }
             ?>
-            <?php echo hyperlink("View cookies",$site_url."/cookies","cookie-page-link","px-3 py-2.5 inline-block w-full sm:w-auto text-center"); ?>
-
- 		</div>
+            <?php
+                echo component("hyperlink",[
+                    'text'  => 'View cookies',
+                    'id'    => 'cookie-page-link',
+                    'href'  => $site_url."/cookies",
+                    'class' => 'px-3 py-2.5 inline-block w-full sm:w-auto text-center'
+                ]);
+            ?>
+        </div>
     </div>
 </div>
 

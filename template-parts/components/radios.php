@@ -26,7 +26,7 @@ if ($options == []) {
 	for ($i = 0; $i < count($options); $i++) {
 		$name_for_id = preg_replace('/[^\da-z]/i', '', strtolower($options[$i]));
 	?>
-		<div class='inline-block w-full sm:w-[40%] cursor-pointer flex flex-wrap relative mb-[10px] last:mb-0'>
+		<div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
 			<input id='<?php echo "$id-$name_for_id";?>' class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0' type='radio' name='<?php echo $id;?>-options' value='yes'>
 			<label
 				for='<?php echo "$id-$name_for_id";?>'
