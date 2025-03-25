@@ -76,7 +76,23 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
             </tr>
         </thead>
         <tbody>
-           <tr>
+            <tr>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
+                    cookie_consent
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    This remembers your cookie consent decision.
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    1 year
+                </td>
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <?php
+                        echo cookie_active("cookie_consent");
+                    ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     wordpress_test_cookie
                 </td>
@@ -127,6 +143,8 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
         </tbody>
     </table>
 
+    <h3>Logged-in users</h3>
+
     <p class="w-full w-max-[666px]">
         In addition to the above, we have futher essential cookies which apply only to users who log into our service.
     </p>
@@ -173,7 +191,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     This shows the site that you’re logged in and who you are so you can access the functions you need.
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    When you close your browser
+                    When you close your browser or when you log out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
@@ -189,7 +207,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     If you are logged in as a site admin, this stores your authentication details.
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    When you close your browser
+                    When you close your browser or when you log out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
@@ -360,7 +378,14 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
             </legend>
             <div id="analytical-cookies-control" class="">
                 <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
-                    <input id='accept-analytical-cookies' class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0' type='radio' name='analytical-cookie-options' value='yes'>
+                    <input
+                        id='accept-analytical-cookies'
+                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0'
+                        type='radio'
+                        name='analytical-cookie-options'
+                        value='yes'
+                        <?php if (array_key_exists("cookie_consent",$_COOKIE) && $_COOKIE["cookie_consent"] == "consent") echo "checked"; ?>
+                    >
                     <label
                         for='accept-analytical-cookies'
                         class='px-[7px] py-[10px] cursor-pointer block touch-manipulation leading-[1.25] 
@@ -371,7 +396,14 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     </label>
                 </div>
                 <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
-                    <input id='reject-analytical-cookies' class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0' type='radio' name='analytical-cookie-options' value='yes'>
+                    <input
+                        id='reject-analytical-cookies'
+                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0'
+                        type='radio'
+                        name='analytical-cookie-options'
+                        value='yes'
+                        <?php if (!array_key_exists("cookie_consent",$_COOKIE) || $_COOKIE["cookie_consent"] != "consent") echo "checked"; ?>
+                    >
                     <label
                         for='reject-analytical-cookies'
                         class='px-[7px] py-[10px] cursor-pointer block touch-manipulation leading-[1.25] 
