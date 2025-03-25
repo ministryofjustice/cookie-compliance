@@ -10,7 +10,15 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
         return (!empty($_COOKIE[$name]) ? $active : $inactive);
     } else {
         foreach(array_keys($_COOKIE) as $cookie_name) {
-            if(strpos($cookie_name,$name) === 0 && !in_array($cookie_name, $exclude)) {
+            if(strpos($cookie_name,$name) === 0) {
+                $in_exclude_list = false;
+                foreach($exclude as $excluded_name) {
+                    if (strpos($cookie_name,$excluded_name) === 0) {
+                        $in_exclude_list = true; //found in the exclude list
+                        break;
+                    }
+                }
+                if ($in_exclude_list) continue;
                 return $active;
                 break;
             }
@@ -153,7 +161,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
-                        echo cookie_active("wordpress_",true,["wordpress_test_cookie"]);
+                        echo cookie_active("wordpress_",true,["wordpress_logged_in","wordpress_sec","wordpress_test_cookie"]);
                     ?>
                 </td>
             </tr>
