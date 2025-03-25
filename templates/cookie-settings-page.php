@@ -69,7 +69,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
         </thead>
         <tbody>
            <tr>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     wordpress_test_cookie
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
@@ -78,7 +78,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
                         echo cookie_active("wordpress_test_cookie");
                     ?>
@@ -94,7 +94,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
                         echo cookie_active("PHPSESSID");
                     ?>
