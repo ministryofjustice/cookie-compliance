@@ -77,7 +77,7 @@ window.onload = function () {
     clearAnalyticalCookies();
     update_cookie_consent('denied');
     update_gtm_consent('denied');
-    set_cookie_page_toggle('granted');
+    set_cookie_page_toggle('denied');
     hide_cookie_banner();
     updateCookieTags();
   });
@@ -90,7 +90,7 @@ function set_cookie_page_toggle(consent){
       document.getElementById("accept-analytical-cookies").checked = true;
     }
     else {
-      document.getElementById("reject-analytical-cookies").checked = false;
+      document.getElementById("reject-analytical-cookies").checked = true;
     }
   }
 }
@@ -160,12 +160,9 @@ function killCookie(name) {
   document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + location.host; // e.g. magistrates.judiciary.uk
   document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + location.host; // e.g. .magistrates.judiciary.uk
   let domain = location.host.split(".");
-  while (domain.length >= 3) {
-    domainJoined = domain.join(".");
-    document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domainJoined;
-    document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + domainJoined;
-    domain.shift();
-  }
+  if (domain.length >= 3) domain[0] = "";
+  domain = domain.join(".");
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domain; // e.g. .judiciary.uk
 }
 
 function updateCookieTags() {

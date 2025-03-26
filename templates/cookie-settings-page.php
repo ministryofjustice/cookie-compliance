@@ -37,7 +37,7 @@ if (isset($_GET) && isset($_GET["page"])) {
 
 <main id="primary" class="px-3 text-lg">
 
-    <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden">
+    <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden w-full w-max-[666px]">
       
       <div class="bg-green-800 border-solid border-4 border-green-800" role="alert">
         <div>
