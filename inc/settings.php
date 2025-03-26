@@ -34,7 +34,7 @@ function cookie_compliance_rewrite_rule() {
     $options = get_option('cookie_compliance_settings');
     if (!empty($options) && array_key_exists('gtm_code', $options) && !empty($options['gtm_code']) ) {
 
-        add_rewrite_rule('^cookies/?', 'index.php?cookie_settings_page=true', 'top');
+        add_rewrite_rule('^(?!.*-)\bcookies\b$', 'index.php?cookie_settings_page=true', 'top');
         add_action('template_redirect', 'cookie_compliance_template_redirect');
         add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
         add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');
