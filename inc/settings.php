@@ -2,8 +2,6 @@
 
 
 function cookie_compliance_scripts() {  
-
-    add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
     
     wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
     wp_enqueue_style("cookie-compliance-tailwind");
