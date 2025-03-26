@@ -48,7 +48,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
     </p>
 
     <p class="w-full w-max-[666px]">
-        We use cookies to make this site work and collect information aout how you use our service.  
+        We use cookies to make this site work and collect information about how you use our service.
     </p>
 
     <h2>Essential cookies</h2>
@@ -80,7 +80,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     cookie_consent
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This remembers your cookie consent decision.
+                    This remembers your cookie consent decision
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     1 year
@@ -96,7 +96,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     wordpress_test_cookie
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This is used to test whether the browser accepts cookies.
+                    This is used to test if your browser accepts cookies
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
@@ -112,7 +112,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     PHPSESSID
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This is used to link your device to the information sent to the server from your browser. It is typically used to avoid you having to retype information when moving from one page to another.
+                    This is used to link your device to the information sent to the server from your browser. It is typically used to avoid you having to retype information when moving from one page to another
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
@@ -128,7 +128,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     info_banner_dismissed
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This remembers if an information banner has been dismissed and prevents it from being displayed again.
+                    This remembers if you've dismissed an information banner and prevents it from being displayed again
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
@@ -145,7 +145,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
     <h3>Logged-in users</h3>
 
     <p class="w-full w-max-[666px]">
-        In addition to the above, we have futher essential cookies which apply only to users who log into our service.
+        We use additional essential cookies that only apply to users who sign in to access our service.
     </p>
 
     <table class="w-full text-left border-collapse">
@@ -171,10 +171,10 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     wordpress_logged_in_[hash]
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This shows the site that you’re logged in and who you are so you can access the functions you need.
+                    This shows the site that you’re signed in and who you are so you can access the functions you need
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    When you close your browser or when you log out
+                    When you close your browser or when you sign out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
@@ -187,10 +187,10 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     wordpress_sec_[hash]
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    If you are logged in as a site admin, this stores your authentication details.
+                    If you are logged in as a site admin, this stores your authentication details
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    When you close your browser or when you log out
+                    When you close your browser or when you sign out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     <?php
@@ -203,7 +203,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     wp-settings-{time}-[UID]
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    The number on the end [UID] is your individual user ID from the users database.
+                    The number on the end [UID] is your individual user ID from the database of users
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     1 year
@@ -244,7 +244,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
         If you share a link to a page, the service you share it on (for example, Facebook) may set a cookie.
     </p>
 
-    <h2>Analytical cookies</h2>
+    <h2>Analytics cookies</h2>
 
     <p class="w-full w-max-[666px]">
         With your permission, we use Google Analytics to collect data about how you use
@@ -256,7 +256,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
     </p>
 
     <p class="w-full w-max-[666px]">
-        Google Analytics stores anonymized information about:
+        Google Analytics stores anonymised information about:
     </p>
     
     <ul class="w-full w-max-[666px]">
@@ -290,7 +290,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     _ga
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This is used to distinguish users and tell us if you have visited before.
+                    This is used to distinguish users and tell us if you have visited before
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     2 years
@@ -306,7 +306,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     _ga_[hash]
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This is used to persist session state.
+                    This is used to persist session state
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     2 years
@@ -322,7 +322,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     _gid
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This help us count how many people visit by tracking if you have visited before.
+                    This help us count how many people visit by tracking if you have visited before
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     24 hours
@@ -338,7 +338,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
                     _gat_[hash]
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    This help us to manage how we collect analytics when we have lots of visitors on the site at one time.
+                    This help us to manage how we collect analytics when we have lots of visitors on the site at one time
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     10 minutes
@@ -358,7 +358,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
     <div class="">
         <fieldset class="border-none px-0 mb-4">
             <legend class="text-xl font-bold">
-                Do you want to accept analytical cookies?
+                Do you want to accept analytics cookies?
             </legend>
             <div id="analytical-cookies-control" class="">
                 <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
