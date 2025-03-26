@@ -2,7 +2,7 @@
 
 
 function cookie_compliance_scripts() {  
-
+    
     wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
     wp_enqueue_style("cookie-compliance-tailwind");
 
@@ -11,19 +11,16 @@ function cookie_compliance_scripts() {
 
     wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
 
-    $options = get_option('cookie_compliance_settings');
-    if (!empty($options) && array_key_exists('gtm_code', $options) && !empty($options['gtm_code']) ) {
-        wp_localize_script(
-            'cookie-consent-script',
-            'cookie_consent_object',
-            array(
-                'gtmcode' => $options['gtm_code'],
-            )
-        );
-    }
+    wp_localize_script(
+        'cookie-consent-script',
+        'cookie_consent_object',
+        array(
+            'gtmcode' => $options['gtm_code'],
+        )
+    );
     wp_enqueue_script('cookie-consent-script');
+
 }
-add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');
 
 // Register query variable for endpoint
 function cookie_compliance_register_query_vars($vars) {
@@ -34,7 +31,15 @@ add_filter('query_vars', 'cookie_compliance_register_query_vars');
 
 // Add rewrite rule for endpoint
 function cookie_compliance_rewrite_rule() {
-    add_rewrite_rule('^cookies/?', 'index.php?cookie_settings_page=true', 'top');
+    $options = get_option('cookie_compliance_settings');
+    if (!empty($options) && array_key_exists('gtm_code', $options) && !empty($options['gtm_code']) ) {
+
+        add_rewrite_rule('^(?!.*-)\bcookies\b$', 'index.php?cookie_settings_page=true', 'top');
+        add_action('template_redirect', 'cookie_compliance_template_redirect');
+        add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
+        add_action('wp_enqueue_scripts', 'cookie_compliance_scripts');
+
+    }
 }
 add_action('init', 'cookie_compliance_rewrite_rule');
 
@@ -48,10 +53,7 @@ function cookie_compliance_template_redirect() {
         exit;
     }
 }
-add_action('template_redirect', 'cookie_compliance_template_redirect');
-
 
 function cookie_compliance_render_banner() {
     include(plugin_dir_path(dirname(__FILE__)) . 'templates/cookie-banner.php');
 }
-add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
