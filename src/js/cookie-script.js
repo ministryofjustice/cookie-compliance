@@ -27,9 +27,13 @@ window.onload = function () {
       set_cookie_page_toggle(consent);
       hide_cookie_banner();
     }
+    if(consent == 'denied'){
+      clearAnalyticalCookies();
+    }
 
   }
   else {
+    clearAnalyticalCookies();
     set_cookie_page_toggle('denied');
   }
 
@@ -42,6 +46,7 @@ window.onload = function () {
         update_gtm_consent('granted');
       }
       else {
+        clearAnalyticalCookies();
         update_cookie_consent('denied');
         update_gtm_consent('denied');
       }
@@ -65,6 +70,7 @@ window.onload = function () {
 
   const declineButton = document.getElementById('cookie-decline'); 
   declineButton.addEventListener("click", function() {
+    clearAnalyticalCookies();
     update_cookie_consent('denied');
     update_gtm_consent('denied');
     set_cookie_page_toggle('granted');
@@ -117,4 +123,42 @@ function get_cookie_consent() {
       if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
   }
   return null;
+}
+
+function clearAnalyticalCookies() {
+  console.log("clearing");
+  // Function to clear Google Analytics cookies if consent is withdrawn
+  killCookieAndRelated("_ga");
+  killCookieAndRelated("_ga_");
+  killCookie("_gid");
+  killCookieAndRelated("_gat");
+}
+
+function killCookieAndRelated(name) {
+  //function for killing all cookies which start with <name>
+  // e.g. _ga will kill of _ga and _ga_123ABC
+  killCookie(name);
+  console.log(name);
+  const cookies = document.cookie.split(";"); // array of cookies
+  for (var i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i].trim();
+      if (!cookie) continue;
+      let eqPos = cookie.indexOf("=");
+      let fullname = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      if (fullname.substring(0,name.length) == name) {
+          killCookie(fullname);
+          console.log(fullname);
+      }
+  }
+}
+
+function killCookie(name) {
+  // kills cookies of name for our domains
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;";
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + location.host; // e.g. magistrates.judiciary.uk
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + location.host; // e.g. .magistrates.judiciary.uk
+  let domain = location.host.split(".");
+  if (domain.length >= 3) domain[0] = "";
+  domain = domain.join(".");
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domain; // e.g. .judiciary.uk
 }
