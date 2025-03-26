@@ -30,7 +30,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
 $return_link = "";
 if (isset($_GET) && isset($_GET["page"])) {
     $return_URL = $_GET["page"];
-    $return_link = "<a href='$return_URL'>Go back to the page you were looking at</a>.";
+    $return_link = "<a class='text-green-800 visited:text-green-800 hover:text-green-900' href='$return_URL'>Go back to the page you were looking at</a>.";
 }
 
 ?>
