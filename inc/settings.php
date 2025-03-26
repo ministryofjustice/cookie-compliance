@@ -3,28 +3,25 @@
 
 function cookie_compliance_scripts() {  
 
-
-
-        add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
-        
-        wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
-        wp_enqueue_style("cookie-compliance-tailwind");
-
-        wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__));
-        wp_enqueue_style("cookie-compliance-styles");
-
-        wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
-
-        wp_localize_script(
-            'cookie-consent-script',
-            'cookie_consent_object',
-            array(
-                'gtmcode' => $options['gtm_code'],
-            )
-        );
-        wp_enqueue_script('cookie-consent-script');
+    add_action('wp_body_open', 'cookie_compliance_render_banner', 11);
     
-   
+    wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
+    wp_enqueue_style("cookie-compliance-tailwind");
+
+    wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__));
+    wp_enqueue_style("cookie-compliance-styles");
+
+    wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
+
+    wp_localize_script(
+        'cookie-consent-script',
+        'cookie_consent_object',
+        array(
+            'gtmcode' => $options['gtm_code'],
+        )
+    );
+    wp_enqueue_script('cookie-consent-script');
+
 }
 
 // Register query variable for endpoint
