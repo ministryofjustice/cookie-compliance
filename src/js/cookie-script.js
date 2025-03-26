@@ -149,7 +149,7 @@ function killCookieAndRelated(name) {
       let cookie = cookies[i].trim();
       if (!cookie) continue;
       let eqPos = cookie.indexOf("=");
-      let fullname = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      let fullname = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
       if (fullname.substring(0,name.length) == name) {
           killCookie(fullname);
           console.log(fullname);
@@ -163,9 +163,13 @@ function killCookie(name) {
   document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + location.host; // e.g. magistrates.judiciary.uk
   document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + location.host; // e.g. .magistrates.judiciary.uk
   let domain = location.host.split(".");
-  if (domain.length >= 3) domain[0] = "";
-  domain = domain.join(".");
-  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domain; // e.g. .judiciary.uk
+  while (domain.length >= 3) {
+    domainJoined = domain.join(".");
+    document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domainJoined;
+    document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + domainJoined;
+    console.log(domainJoined);
+    domain.shift();
+  }
 }
 
 function updateCookieTags() {
