@@ -26,6 +26,13 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
         return $inactive;
     }
 }
+
+$return_link = "";
+if (isset($_GET) && isset($_GET["page"])) {
+    $return_URL = $_GET["page"];
+    $return_link = "<a href='$return_URL'>Go back to the page you were looking at</a>.";
+}
+
 ?>
 
 <main id="primary" class="px-3 text-lg">
@@ -37,7 +44,7 @@ function cookie_active($name, $start_of_name = false, $exclude = []) {
           <h2 class="text-white text-lg pt-[5px] pb-[5px] pl-[20px] m-0 has-text-color">Success</h2>
         </div>
         <div class="bg-white p-[20px]">
-            <h3 class="m-0">Your cookie settings were saved</h3>
+            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <?php echo $return_link;?></p>
         </div>
       </div>
     </div>
