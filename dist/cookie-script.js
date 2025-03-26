@@ -26,6 +26,7 @@ window.onload = function () {
       update_gtm_consent(consent);
       set_cookie_page_toggle(consent);
       hide_cookie_banner();
+      updateCookieTags();
     }
     if(consent == 'denied'){
       clearAnalyticalCookies();
@@ -54,8 +55,10 @@ window.onload = function () {
       const confirmationBanner = document.getElementById('cookie-settings-confirmation'); 
       confirmationBanner.classList.remove("hidden");
       confirmationBanner.scrollIntoView({ behavior: "instant" });
+      saveButton.blur();
 
       hide_cookie_banner();
+      updateCookieTags();
     });
 
   }
@@ -66,6 +69,7 @@ window.onload = function () {
     update_gtm_consent('granted');
     set_cookie_page_toggle('granted');
     hide_cookie_banner();
+    updateCookieTags();
   });
 
   const declineButton = document.getElementById('cookie-decline'); 
@@ -75,6 +79,7 @@ window.onload = function () {
     update_gtm_consent('denied');
     set_cookie_page_toggle('granted');
     hide_cookie_banner();
+    updateCookieTags();
   });
 
 };
@@ -161,4 +166,28 @@ function killCookie(name) {
   if (domain.length >= 3) domain[0] = "";
   domain = domain.join(".");
   document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domain; // e.g. .judiciary.uk
+}
+
+function updateCookieTags() {
+  const cookies = document.cookie.split(";"); // array of cookies
+  let tableEntries = document.querySelectorAll("tr");
+  tableEntries.forEach(row => {
+    cookieName = row.dataset.cookiename;
+    if (cookieName) {
+      row.querySelector(".cookie-active").classList.add("hidden");
+      row.querySelector(".cookie-inactive").classList.remove("hidden");
+      for (var i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (!cookie) continue;
+        let eqPos = cookie.indexOf("=");
+        let fullname = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        if (fullname.substring(0,cookieName.length) == cookieName) {
+          //cookie found
+          row.querySelector(".cookie-active").classList.remove("hidden");
+          row.querySelector(".cookie-inactive").classList.add("hidden");
+          break;
+        }
+      }
+    }
+  });
 }
