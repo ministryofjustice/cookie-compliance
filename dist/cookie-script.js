@@ -88,10 +88,8 @@ function set_cookie_page_toggle(consent){
   if (document.getElementById("analytical-cookies-control")) {
     if(consent == 'granted'){ 
       document.getElementById("accept-analytical-cookies").checked = true;
-      document.getElementById("reject-analytical-cookies").checked = false;
     }
     else {
-      document.getElementById("accept-analytical-cookies").checked = false;
       document.getElementById("reject-analytical-cookies").checked = true;
     }
   }
