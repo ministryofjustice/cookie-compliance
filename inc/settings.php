@@ -11,6 +11,8 @@ function cookie_compliance_scripts() {
 
     wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
 
+    $options = get_option('cookie_compliance_settings');
+
     wp_localize_script(
         'cookie-consent-script',
         'cookie_consent_object',
