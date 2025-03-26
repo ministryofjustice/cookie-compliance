@@ -131,7 +131,6 @@ function get_cookie_consent() {
 }
 
 function clearAnalyticalCookies() {
-  console.log("clearing");
   // Function to clear Google Analytics cookies if consent is withdrawn
   killCookieAndRelated("_ga");
   killCookieAndRelated("_ga_");
@@ -143,7 +142,6 @@ function killCookieAndRelated(name) {
   //function for killing all cookies which start with <name>
   // e.g. _ga will kill of _ga and _ga_123ABC
   killCookie(name);
-  console.log(name);
   const cookies = document.cookie.split(";"); // array of cookies
   for (var i = 0; i < cookies.length; i++) {
       let cookie = cookies[i].trim();
@@ -152,7 +150,6 @@ function killCookieAndRelated(name) {
       let fullname = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
       if (fullname.substring(0,name.length) == name) {
           killCookie(fullname);
-          console.log(fullname);
       }
   }
 }
@@ -167,7 +164,6 @@ function killCookie(name) {
     domainJoined = domain.join(".");
     document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domainJoined;
     document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + domainJoined;
-    console.log(domainJoined);
     domain.shift();
   }
 }
