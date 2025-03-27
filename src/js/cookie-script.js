@@ -16,7 +16,9 @@ dataLayer.push({'gtm.start': new Date().getTime(), 'event': 'gtm.js'});
     })(window,document,'script','dataLayer', cookie_consent_object.gtmcode);
 
 window.onload = function () {
-    
+  updateCookieTags();
+  setReturnLink(); //Tells the confirmation banner where to link to
+
   let consent = get_cookie_consent()
 
   // If a consent decision exists, ensure GTM gets the correct state
@@ -187,4 +189,15 @@ function updateCookieTags() {
       }
     }
   });
+}
+
+function setReturnLink() {
+  let returnLink = document.getElementById("cookie-confirmation-return");
+  if (returnLink) {
+    let returnURL = document.referrer;
+    if (document.referrer !== "") {
+      returnLink.href = returnURL;
+      returnLink.classList.remove("hidden");
+    }
+  }
 }

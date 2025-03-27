@@ -3,48 +3,16 @@ get_header();
 
 flush();
 
-function cookie_active($name, $start_of_name = false, $exclude = []) {
-    $active = "<div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>";
-    $inactive = "<div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2'>Inactive</div>";
-    if (!$start_of_name) {
-        return (!empty($_COOKIE[$name]) ? $active : $inactive);
-    } else {
-        foreach(array_keys($_COOKIE) as $cookie_name) {
-            if(strpos($cookie_name,$name) === 0) {
-                $in_exclude_list = false;
-                foreach($exclude as $excluded_name) {
-                    if (strpos($cookie_name,$excluded_name) === 0) {
-                        $in_exclude_list = true; //found in the exclude list
-                        break;
-                    }
-                }
-                if ($in_exclude_list) continue;
-                return $active;
-                break;
-            }
-        }
-        return $inactive;
-    }
-}
-
-$return_link = "";
-if (isset($_GET) && isset($_GET["page"])) {
-    $return_URL = $_GET["page"];
-    $return_link = "<a class='text-green-800 visited:text-green-800 hover:text-green-900' href='$return_URL'>Go back to the page you were looking at</a>.";
-}
-
 ?>
 
-<main id="primary" class="px-3 text-lg">
-
+<main id="cookie-settings-page" class="px-3 text-lg">
     <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden w-full w-max-[666px]">
-      
       <div class="bg-green-800 border-solid border-4 border-green-800" role="alert">
         <div>
           <h2 class="text-white text-lg pt-[5px] pb-[5px] pl-[20px] m-0 has-text-color">Success</h2>
         </div>
         <div class="bg-white p-[20px]">
-            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <?php echo $return_link;?></p>
+            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <a id="cookie-confirmation-return" class='text-green-800 visited:text-green-800 hover:text-green-900 hidden' href='#'>Go back to the page you were looking at</a>.</p>
         </div>
       </div>
     </div>
@@ -93,9 +61,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     1 year
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("cookie_consent");
-                    ?>
+                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="wordpress_test_cookie">
@@ -109,9 +75,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("wordpress_test_cookie");
-                    ?>
+                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="PHPSESSID">
@@ -125,9 +89,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("PHPSESSID");
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="info_banner_dismissed">
@@ -141,9 +103,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("info_banner_dismissed");
-                    ?>
+                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
@@ -184,9 +144,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser or when you sign out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("wordpress_logged_in",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="wordpress_sec">
@@ -200,9 +158,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser or when you sign out
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("wordpress_sec",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="wp-settings-">
@@ -216,9 +172,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     1 year
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("wp-settings-",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="wp_lang">
@@ -232,9 +186,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     When you close your browser
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("wp_lang",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
@@ -254,7 +206,13 @@ if (isset($_GET) && isset($_GET["page"])) {
     <h2>Analytics cookies</h2>
 
     <p class="w-full w-max-[666px]">
-        With your permission, we use Google Analytics to collect data about how you use
+        With your permission, we use
+        <a class="cookie-link
+            text-sky-700 focus:bg-yellow-400 hover:text-sky-900 focus:text-black focus:bg-yellow
+            underline focus:no-underline focus:outline-none
+            focus:shadow-[0_-2px_oklch(0.852_0.199_91.936),0_4px_#000]
+        " href="https://business.safety.google/privacy/">Google Analytics</a>
+        to collect data about how you use
         this service.  This information helps us to improve our service.
     </p>
 
@@ -303,9 +261,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     2 years
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("_ga");
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="_ga_">
@@ -319,9 +275,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     2 years
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("_ga_",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="_gid">
@@ -335,9 +289,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     24 hours
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("_gid");
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="_gat_">
@@ -351,9 +303,7 @@ if (isset($_GET) && isset($_GET["page"])) {
                     10 minutes
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <?php
-                        echo cookie_active("_gat_",true);
-                    ?>
+                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
@@ -371,11 +321,10 @@ if (isset($_GET) && isset($_GET["page"])) {
                 <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
                     <input
                         id='accept-analytical-cookies'
-                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0'
+                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='yes'
-                        <?php if (array_key_exists("cookie_consent",$_COOKIE) && $_COOKIE["cookie_consent"] == "consent") echo "checked"; ?>
                     >
                     <label
                         for='accept-analytical-cookies'
@@ -389,11 +338,10 @@ if (isset($_GET) && isset($_GET["page"])) {
                 <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
                     <input
                         id='reject-analytical-cookies'
-                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0'
+                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='yes'
-                        <?php if (!array_key_exists("cookie_consent",$_COOKIE) || $_COOKIE["cookie_consent"] != "consent") echo "checked"; ?>
                     >
                     <label
                         for='reject-analytical-cookies'

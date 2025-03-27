@@ -3,8 +3,6 @@ $site_name = !empty(get_bloginfo()) ? get_bloginfo() : "this site";
 $site_url = get_site_url();
 /* */
 $display_cookie_banner = 1;
-global $wp;
-$this_url = home_url( $wp->request );
 
 if ($display_cookie_banner) {
 ?>
@@ -43,10 +41,11 @@ if ($display_cookie_banner) {
                 Reject analytics cookies
             </button>
             <a
-                href="<?php echo $site_url;?>/cookies?page=<?php echo wp_make_link_relative($this_url); ?>" id="cookie-page-link"
-                class="
+                href="<?php echo $site_url;?>/cookies" id="cookie-page-link"
+                class="cookie-link
                     text-sky-700 focus:bg-yellow-400 hover:text-sky-900 focus:text-black focus:bg-yellow
-                    underline focus:no-underline border-b-4 focus:border-black focus:outline-none
+                    underline focus:no-underline focus:outline-none
+                    focus:shadow-[0_-2px_oklch(0.852_0.199_91.936),0_4px_#000]
                     px-3 py-2.5
                     inline-block w-full sm:w-auto text-center
                 "
