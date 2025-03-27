@@ -16,7 +16,9 @@ dataLayer.push({'gtm.start': new Date().getTime(), 'event': 'gtm.js'});
     })(window,document,'script','dataLayer', cookie_consent_object.gtmcode);
 
 window.onload = function () {
-    
+  updateCookieTags();
+  setReturnLink(); //Tells the confirmation banner where to link to
+
   let consent = get_cookie_consent()
 
   // If a consent decision exists, ensure GTM gets the correct state
@@ -26,10 +28,15 @@ window.onload = function () {
       update_gtm_consent(consent);
       set_cookie_page_toggle(consent);
       hide_cookie_banner();
+      updateCookieTags();
+    }
+    if(consent == 'denied'){
+      clearAnalyticalCookies();
     }
 
   }
   else {
+    clearAnalyticalCookies();
     set_cookie_page_toggle('denied');
   }
 
@@ -42,6 +49,7 @@ window.onload = function () {
         update_gtm_consent('granted');
       }
       else {
+        clearAnalyticalCookies();
         update_cookie_consent('denied');
         update_gtm_consent('denied');
       }
@@ -49,8 +57,10 @@ window.onload = function () {
       const confirmationBanner = document.getElementById('cookie-settings-confirmation'); 
       confirmationBanner.classList.remove("hidden");
       confirmationBanner.scrollIntoView({ behavior: "instant" });
+      saveButton.blur();
 
       hide_cookie_banner();
+      updateCookieTags();
     });
 
   }
@@ -61,14 +71,17 @@ window.onload = function () {
     update_gtm_consent('granted');
     set_cookie_page_toggle('granted');
     hide_cookie_banner();
+    updateCookieTags();
   });
 
   const declineButton = document.getElementById('cookie-decline'); 
   declineButton.addEventListener("click", function() {
+    clearAnalyticalCookies();
     update_cookie_consent('denied');
     update_gtm_consent('denied');
-    set_cookie_page_toggle('granted');
+    set_cookie_page_toggle('denied');
     hide_cookie_banner();
+    updateCookieTags();
   });
 
 };
@@ -117,4 +130,74 @@ function get_cookie_consent() {
       if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
   }
   return null;
+}
+
+function clearAnalyticalCookies() {
+  // Function to clear Google Analytics cookies if consent is withdrawn
+  killCookieAndRelated("_ga");
+  killCookieAndRelated("_ga_");
+  killCookie("_gid");
+  killCookieAndRelated("_gat");
+}
+
+function killCookieAndRelated(name) {
+  //function for killing all cookies which start with <name>
+  // e.g. _ga will kill of _ga and _ga_123ABC
+  killCookie(name);
+  const cookies = document.cookie.split(";"); // array of cookies
+  for (var i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i].trim();
+      if (!cookie) continue;
+      let eqPos = cookie.indexOf("=");
+      let fullname = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+      if (fullname.substring(0,name.length) == name) {
+          killCookie(fullname);
+      }
+  }
+}
+
+function killCookie(name) {
+  // kills cookies of name for our domains
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;";
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + location.host; // e.g. magistrates.judiciary.uk
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=." + location.host; // e.g. .magistrates.judiciary.uk
+  let domain = location.host.split(".");
+  if (domain.length >= 3) domain[0] = "";
+  domain = domain.join(".");
+  document.cookie = name + "=; expires=Sun, 01 May 1707 00:00:00 UTC; path=/;domain=" + domain; // e.g. .judiciary.uk
+}
+
+function updateCookieTags() {
+  const cookies = document.cookie.split(";"); // array of cookies
+  let tableEntries = document.querySelectorAll("tr");
+  tableEntries.forEach(row => {
+    cookieName = row.dataset.cookiename;
+    if (cookieName) {
+      row.querySelector(".cookie-active").classList.add("hidden");
+      row.querySelector(".cookie-inactive").classList.remove("hidden");
+      for (var i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (!cookie) continue;
+        let eqPos = cookie.indexOf("=");
+        let fullname = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        if (fullname.substring(0,cookieName.length) == cookieName) {
+          //cookie found
+          row.querySelector(".cookie-active").classList.remove("hidden");
+          row.querySelector(".cookie-inactive").classList.add("hidden");
+          break;
+        }
+      }
+    }
+  });
+}
+
+function setReturnLink() {
+  let returnLink = document.getElementById("cookie-confirmation-return");
+  if (returnLink) {
+    let returnURL = document.referrer;
+    if (document.referrer !== "") {
+      returnLink.href = returnURL;
+      returnLink.classList.remove("hidden");
+    }
+  }
 }
