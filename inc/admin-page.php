@@ -1,26 +1,4 @@
 <?php
-/**
- * Checks if debug mode is active based on the plugin settings.
- *
- * @return bool `true` if debug mode is active, `false` otherwise.
- */
-function cookie_compliance_is_debug_mode_active(){
-
-
-    $options = get_option('cookie_compliance_settings');
-
-    if (empty($options) || !array_key_exists('debug_mode', $options)) {
-        return false;
-    }
-
-    if($options['debug_mode'] == 'debug'){
-        return true;
-    }
-
-    return false;
-}
-
-
 add_action('admin_menu', 'cookie_compliance_settings_page');
 add_action('admin_init', 'cookie_compliance_settings_init');
 
@@ -78,7 +56,11 @@ function cookie_compliance_input_field_render($args)
 
 function cookie_compliance_plugin_settings()
 {
-
+    $options = get_option('cookie_compliance_settings');
+    
+    if (!empty($options) && array_key_exists('gtm_code', $options) && !empty($options['gtm_code']) ) {
+        flush_rewrite_rules();
+    }
     ?>
     <h1>Cookie Compliance</h1>
     <form action='options.php' method='post'>
