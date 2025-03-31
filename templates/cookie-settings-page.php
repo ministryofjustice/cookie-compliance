@@ -12,7 +12,7 @@ flush();
           <h2 class="text-white text-lg pt-[5px] pb-[5px] pl-[20px] m-0 has-text-color">Success</h2>
         </div>
         <div class="bg-white p-[20px]">
-            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <a id="cookie-confirmation-return" class='text-green-800 visited:text-green-800 hover:text-green-900 hidden' href='#'>Go back to the page you were looking at</a>.</p>
+            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <a id="cookie-confirmation-return" class='text-green-800 visited:text-green-800 hover:text-green-900 hidden' href='#'>Go back to the page you were looking at.</a></p>
         </div>
       </div>
     </div>
