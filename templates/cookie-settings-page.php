@@ -44,9 +44,6 @@ flush();
                 <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     Expires
                 </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    Current status
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -60,9 +57,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     1 year
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="wordpress_test_cookie">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -73,9 +67,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="PHPSESSID">
@@ -88,9 +79,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="info_banner_dismissed">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -101,9 +89,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                    <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
@@ -127,9 +112,6 @@ flush();
                 <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     Expires
                 </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    Current status
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -143,9 +125,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser or when you sign out
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="wordpress_sec">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -156,9 +135,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser or when you sign out
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="wp-settings-">
@@ -171,9 +147,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     1 year
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="wp_lang">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -184,9 +157,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     When you close your browser
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
@@ -244,9 +214,6 @@ flush();
                 <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
                     Expires
                 </th>
-                <th scope="col" class="px-6 py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
-                    Current status
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -260,9 +227,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     2 years
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="_ga_">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -273,9 +237,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     2 years
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
             <tr data-cookiename="_gid">
@@ -288,9 +249,6 @@ flush();
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     24 hours
                 </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
-                </td>
             </tr>
             <tr data-cookiename="_gat_">
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
@@ -301,9 +259,6 @@ flush();
                 </td>
                 <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                     10 minutes
-                </td>
-                <td class="px-6 py-4 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0 whitespace-nowrap">
-                   <div class='cookie-active text-slate-800 bg-blue-200 inline-block px-2 hidden'>Active</div><div class='cookie-inactive text-zinc-800 bg-gray-200 inline-block px-2 hidden'>Inactive</div>
                 </td>
             </tr>
         </tbody>
