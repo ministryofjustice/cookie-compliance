@@ -6,7 +6,7 @@ $display_cookie_banner = 1;
 
 if ($display_cookie_banner) {
 ?>
-<div id="cookie-compliance-banner" data-nosnippet="true" class="bg-gray-200 w-full py-[1rem]">
+<div id="cookie-compliance-banner" data-nosnippet="true" class="bg-gray-200 w-full py-[1rem] hidden">
     <div class="mx-auto max-w-[90%] w-[960px]">
         <h2 class="text-2xl">
             Cookies on <?php echo $site_name;?>
