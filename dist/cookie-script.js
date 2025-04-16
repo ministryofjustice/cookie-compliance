@@ -110,6 +110,7 @@ function update_gtm_consent(consent){
 function show_cookie_banner(){
   document.getElementById('cookie-compliance-banner').classList.remove("hidden");
   setTimeout(function(){
+    // Tiny delay to allow the height of the element without hidden to be rendered
     window.scrollTo(0,0);
   }, 1);
 }
