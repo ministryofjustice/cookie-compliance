@@ -27,15 +27,18 @@ window.onload = function () {
       update_gtm_consent(consent);
       set_cookie_page_toggle(consent);
       hide_cookie_banner();
+    } else {
+      killCookie('cookie_consent'); //if neither "granted" nor "denied", the cookie is wiped
+      show_cookie_banner();
     }
     if(consent == 'denied'){
       clearAnalyticalCookies();
     }
 
-  }
-  else {
+  } else {
     clearAnalyticalCookies();
     set_cookie_page_toggle('denied');
+    show_cookie_banner();
   }
 
   if (document.getElementById("save-cookies-button")) {  
@@ -52,7 +55,7 @@ window.onload = function () {
         update_gtm_consent('denied');
       }
 
-      const confirmationBanner = document.getElementById('cookie-settings-confirmation'); 
+      const confirmationBanner = document.getElementById('cookie-settings-confirmation');
       confirmationBanner.classList.remove("hidden");
       confirmationBanner.scrollIntoView({ behavior: "instant" });
       saveButton.blur();
@@ -102,6 +105,14 @@ function update_gtm_consent(consent){
     ad_storage: consent,
     analytics_storage: consent
   });
+}
+
+function show_cookie_banner(){
+  document.getElementById('cookie-compliance-banner').classList.remove("hidden");
+  setTimeout(function(){
+    // Tiny delay to allow the height of the element without hidden to be rendered
+    window.scrollTo(0,0);
+  }, 1);
 }
 
 function hide_cookie_banner(){
