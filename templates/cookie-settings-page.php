@@ -65,7 +65,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         This is used to test if your browser accepts cookies
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
@@ -87,7 +87,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         This remembers if you've dismissed an information banner and prevents it from being displayed again
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
@@ -124,7 +124,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         This shows the site that you’re signed in and who you are so you can access the functions you need
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         When you close your browser or when you sign out
                     </td>
                 </tr>
@@ -135,7 +135,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         If you are logged in as a site admin, this stores your authentication details
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         When you close your browser or when you sign out
                     </td>
                 </tr>
@@ -157,7 +157,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         This remembers language settings.
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
@@ -261,7 +261,7 @@ flush();
                     <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         This help us to manage how we collect analytics when we have lots of visitors on the site at one time
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
+                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-gray-900 first:ps-0 last:pe-0">
                         10 minutes
                     </td>
                 </tr>
