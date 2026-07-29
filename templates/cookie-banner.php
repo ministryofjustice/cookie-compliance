@@ -8,7 +8,7 @@ if ($display_cookie_banner) {
 ?>
 <div id="cookie-compliance-banner" data-nosnippet="true" class="print:hidden text-black dark:text-white bg-gray-200 dark:bg-neutral-700 w-full py-[1rem] hidden box-border [&_*]:box-border">
     <div class="mx-auto max-w-[90%] w-[960px]">
-        <h2 class="mt-2 mb-3 text-2xl font-bold">
+        <h2 class="text-2xl font-bold">
             Cookies on <?php echo esc_html($site_name);?>
         </h2>
         <div class="text-lg">
