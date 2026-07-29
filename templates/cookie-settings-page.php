@@ -1,11 +1,52 @@
 <?php
-get_header();
+// Block (FSE) themes have no header.php or footer.php, so get_header() and
+// get_footer() fall through to wp-includes/theme-compat/*.php and render the
+// old Kubrick markup. Build the document ourselves in that case.
 
-flush();
+if (!function_exists('cookie_compliance_block_part')) {
+    // Return the rendered HTML for a block theme's header or footer template
+    // part. Themes don't always name them plain 'header' and 'footer' (govwind
+    // uses 'header-default'), so fall back to whatever theme.json declares for
+    // the area.
+    function cookie_compliance_block_part($area) {
+        $part = get_block_template(get_stylesheet() . '//' . $area, 'wp_template_part');
 
+        if (!$part) {
+            $parts = get_block_templates(array('area' => $area), 'wp_template_part');
+            $part = !empty($parts) ? $parts[0] : null;
+        }
+
+        return ($part && !empty($part->content)) ? do_blocks($part->content) : '';
+    }
+}
+
+$is_block_theme = function_exists('wp_is_block_theme') && wp_is_block_theme();
+
+if ($is_block_theme) {
+    // Render the template parts before <head>, so blocks inside them can still
+    // enqueue their styles in wp_head(). Core does the same in
+    // wp-includes/template-canvas.php.
+    $header_html = cookie_compliance_block_part('header');
+    $footer_html = cookie_compliance_block_part('footer');
+    ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+    <?php
+    wp_body_open();
+    // Classic themes such as Hale already open <main> in header.php.
+    echo '<div class="wp-site-blocks"><header class="wp-block-template-part">' . $header_html . '</header><main class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top: 0; padding-top: var(--wp--preset--spacing--60); padding-bottom: var(--wp--preset--spacing--60);">';
+} else {
+    get_header();
+}
 ?>
 
-<main id="cookie-settings-page" class="px-3 text-lg">
+<div id="cookie-settings-page" class="px-3 text-lg">
     <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden w-full w-max-[666px] dark:text-white">
       <div class="bg-green-800 dark:bg-green-600 border-solid border-4 border-green-800 dark:border-green-600" role="alert">
         <div>
@@ -301,7 +342,7 @@ flush();
                         class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
-                        value='yes'
+                        value='no'
                     >
                     <label
                         for='reject-analytical-cookies'
@@ -326,7 +367,14 @@ flush();
     >
         Save cookie settings
     </button>
-</main>
+</div>
+
 <?php
-flush();
-get_footer();
+if ($is_block_theme) {
+    echo '</main>' . $footer_html . '</div>';
+    wp_footer();
+    echo '</body></html>';
+} else {
+    get_footer();
+}
+
