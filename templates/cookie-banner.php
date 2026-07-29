@@ -6,10 +6,10 @@ $display_cookie_banner = 1;
 
 if ($display_cookie_banner) {
 ?>
-<div id="cookie-compliance-banner" data-nosnippet="true" class="cc:print:hidden cc:text-black cc:dark:text-white cc:bg-gray-200 cc:dark:bg-neutral-700 cc:w-full cc:py-[1rem] cc:hidden">
+<div id="cookie-compliance-banner" data-nosnippet="true" class="cc:print:hidden cc:text-black cc:dark:text-white cc:bg-gray-200 cc:dark:bg-neutral-700 cc:w-full cc:py-[1rem] cc:hidden cc:box-border cc:[&_*]:box-border">
     <div class="cc:mx-auto cc:max-w-[90%] cc:w-[960px]">
         <h2 class="cc:text-2xl cc:font-bold">
-            Cookies on <?php echo $site_name;?>
+            Cookies on <?php echo esc_html($site_name);?>
         </h2>
         <div class="cc:text-lg">
             <p class="cc:mb-2">
@@ -41,9 +41,9 @@ if ($display_cookie_banner) {
                 Reject analytics cookies
             </button>
             <a
-                href="<?php echo $site_url;?>/cookies" id="cookie-page-link"
+                href="<?php echo esc_url($site_url);?>/cookies" id="cookie-page-link"
                 class="cc:cookie-link
-                    cc:text-sky-700 cc:dark:text-sky-300 cc:focus:bg-yellow-400 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black cc:focus:bg-yellow
+                    cc:text-sky-700 cc:dark:text-sky-300 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black cc:focus:bg-yellow
                     cc:underline cc:focus:no-underline cc:focus:outline-hidden
                     cc:px-3 cc:py-2.5
                     cc:inline-block cc:w-full cc:sm:w-auto cc:text-center
