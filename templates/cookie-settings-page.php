@@ -314,12 +314,12 @@ if ($is_block_theme) {
 
 
     <div>
-        <fieldset class="cc:border-none cc:px-0 cc:mb-4">
+        <fieldset class="cc:border-none cc:!p-0 cc:mb-4">
             <legend class="cc:text-xl cc:font-bold">
                 Do you want to accept analytics cookies?
             </legend>
             <div id="analytical-cookies-control">
-                <div class='cc:inline-block cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
+                <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='accept-analytical-cookies'
                         class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
@@ -336,7 +336,7 @@ if ($is_block_theme) {
                         Yes
                     </label>
                 </div>
-                <div class='cc:inline-block cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
+                <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='reject-analytical-cookies'
                         class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
@@ -356,7 +356,7 @@ if ($is_block_theme) {
             </div>
         </fieldset>
     </div>
-    <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
+    <input class="cc:hidden" type="text" name="previous" step="any" id="previous" value="">
     <button
         id="save-cookies-button" name="changes" type="submit" value="saved" data-module=""
         class="cc:text-white cc:bg-green-900 cc:hover:bg-green-950 cc:dark:bg-green-800 cc:dark:hover:bg-green-700

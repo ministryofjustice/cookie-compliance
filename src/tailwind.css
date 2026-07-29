@@ -1,8 +1,10 @@
-@import "tailwindcss" prefix(cc);
+@layer theme, base, components, utilities;
 
-@source "./src/**/*.{js,jsx,ts,tsx}";
-@source "./*.php";
-@source "./templates/*.php";
+@import "tailwindcss/theme.css" layer(theme) prefix(cc);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(cc);
+
+
+@source "../templates/*.php";
 
 @theme {
   --container-padding: 10rem;
