@@ -342,7 +342,7 @@ if ($is_block_theme) {
                         class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
-                        value='no'
+                        value='yes'
                     >
                     <label
                         for='reject-analytical-cookies'
