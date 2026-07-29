@@ -48,13 +48,8 @@ window.onload = function () {
       if(document.getElementById("accept-analytical-cookies").checked){
         update_cookie_consent('granted');
         update_gtm_consent('granted');
-        console.log("granted");
-        console.log("granted");
-        console.log("granted");
-        console.log("granted");
       }
       else {
-        console.log("not granted");
         clearAnalyticalCookies();
         update_cookie_consent('denied');
         update_gtm_consent('denied');

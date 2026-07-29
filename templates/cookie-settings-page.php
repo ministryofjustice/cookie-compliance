@@ -21,8 +21,13 @@ if (!function_exists('cookie_compliance_block_part')) {
 }
 
 $is_block_theme = function_exists('wp_is_block_theme') && wp_is_block_theme();
+$support_dark_mode = false;
 
 if ($is_block_theme) {
+
+    // Assume all block themes support dark mode and non-block themes don't
+    $support_dark_mode = true;
+
     // Render the template parts before <head>, so blocks inside them can still
     // enqueue their styles in wp_head(). Core does the same in
     // wp-includes/template-canvas.php.
@@ -47,13 +52,18 @@ if ($is_block_theme) {
 ?>
 
 <div id="cookie-settings-page" class="cc:px-3 cc:text-lg">
-    <div id="cookie-settings-confirmation" class="cc:mt-8 cc:mb-8 cc:hidden cc:w-full cc:w-max-[666px] cc:dark:text-white">
-    <div class="cc:bg-green-800 cc:dark:bg-green-600 cc:border-solid cc:border-4 cc:border-green-800 cc:dark:border-green-600" role="alert">
+    <div id="cookie-settings-confirmation" class="cc:mt-8 cc:mb-8 cc:hidden cc:w-full cc:w-max-[666px] <?php if ($support_dark_mode) echo "cc:!dark:text-white"; ?>">
+    <div class="cc:bg-green-800 cc:border-solid cc:border-4 cc:border-green-800 <?php if ($support_dark_mode) echo "cc:dark:bg-[#4dff30] cc:dark:border-[#4dff30]";?>" role="alert">
         <div>
-        <h2 class="cc:text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:m-0 has-text-color">Success</h2>
+        <h2 class="cc:text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:m-0 has-text-color <?php if ($support_dark_mode) echo "cc:dark:text-black"; ?>">Success</h2>
         </div>
-        <div class="cc:bg-white cc:dark:bg-neutral-700 cc:p-[20px]">
-            <p class="cc:m-0 cc:font-bold">You&rsquo;ve set your cookie preferences. <a id="cookie-confirmation-return" class='text-green-800 dark:text-green-400 visited:text-green-800 dark:visited:text-green-400 hover:text-green-900 dark:hover:text-green-200 hidden' href='#'>Go back to the page you were looking at.</a></p>
+        <div class="cc:bg-white cc:p-[20px] <?php if ($support_dark_mode) echo "cc:dark:bg-neutral-700"; ?> ">
+            <p class="cc:!m-0 cc:font-bold">
+                You&rsquo;ve set your cookie preferences.
+                <a id="cookie-confirmation-return" class='cc:hidden' href='#'>
+                    Go back to the page you were looking at.
+                </a>
+            </p>
         </div>
     </div>
     </div>

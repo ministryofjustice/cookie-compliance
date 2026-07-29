@@ -15,7 +15,7 @@ if ($display_cookie_banner) {
             <p class="cc:mb-2">
                 We use some essential cookies to make this service work.
             </p>
-            <p class="cc:mb-3">
+            <p class="cc:!mb-3">
                 We’d also like to use analytics cookies so we can understand how you use the service and make improvements.
             </p>
         </div>
