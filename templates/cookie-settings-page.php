@@ -40,7 +40,7 @@ if ($is_block_theme) {
     <?php
     wp_body_open();
     // Classic themes such as Hale already open <main> in header.php.
-    echo '<div class="wp-site-blocks"><header class="wp-block-template-part">' . $header_html . '</header><main class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top: 0; padding-top: var(--wp--preset--spacing--60); padding-bottom: var(--wp--preset--spacing--60);">';
+    echo '<div class="wp-site-blocks"><header class="wp-block-template-part">' . $header_html . '</header><main lang="en" class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top: 0; padding-top: var(--wp--preset--spacing--60); padding-bottom: var(--wp--preset--spacing--60);">';
 } else {
     get_header();
 }
@@ -342,7 +342,7 @@ if ($is_block_theme) {
                         class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
-                        value='yes'
+                        value='no'
                     >
                     <label
                         for='reject-analytical-cookies'
