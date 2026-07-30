@@ -43,7 +43,7 @@ if ($display_cookie_banner) {
             <a
                 href="<?php echo esc_url($site_url);?>/cookies" id="cookie-page-link"
                 class="cc:cookie-link
-                    cc:text-sky-700 cc:dark:text-sky-300 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black cc:focus:bg-yellow
+                    cc:text-sky-700 cc:dark:text-sky-300 cc:focus:bg-yellow-400 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black
                     cc:underline cc:focus:no-underline cc:focus:outline-hidden
                     cc:px-3 cc:py-2.5
                     cc:inline-block cc:w-full cc:sm:w-auto cc:text-center
