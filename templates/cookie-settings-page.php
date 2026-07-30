@@ -53,7 +53,7 @@ if ($is_block_theme) {
 
 <div id="cookie-settings-page" class="cc:px-3 cc:text-lg">
     <div id="cookie-settings-confirmation" class="cc:mt-8 cc:mb-8 cc:hidden cc:w-full cc:w-max-[666px] <?php if ($support_dark_mode) echo "cc:!dark:text-white"; ?>">
-    <div class="cc:bg-green-800 cc:border-solid cc:border-4 cc:border-green-800 <?php if ($support_dark_mode) echo "cc:dark:bg-[#4dff30] cc:dark:border-[#4dff30]";?>" role="alert">
+    <div class="cc:bg-green-800 cc:border-solid cc:border-4 cc:border-green-800 <?php if ($support_dark_mode) echo "cc:dark:bg-[#429b34] cc:dark:border-[#429b34]";?>" role="alert">
         <div>
         <h2 class="cc:text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:m-0 has-text-color <?php if ($support_dark_mode) echo "cc:dark:text-black"; ?>">Success</h2>
         </div>
