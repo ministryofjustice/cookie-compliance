@@ -325,14 +325,14 @@ if ($is_block_theme) {
 
     <div>
         <fieldset class="cc:border-none cc:!p-0 cc:mb-4">
-            <legend class="cc:text-xl cc:font-bold">
+            <legend class="cc:text-xl cc:font-bold cc:mb-4">
                 Do you want to accept analytics cookies?
             </legend>
             <div id="analytical-cookies-control">
                 <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='accept-analytical-cookies'
-                        class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
+                        class='cc:!w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='yes'
@@ -349,7 +349,7 @@ if ($is_block_theme) {
                 <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='reject-analytical-cookies'
-                        class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
+                        class='cc:!w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='no'
