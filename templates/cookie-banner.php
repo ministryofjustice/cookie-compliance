@@ -3,7 +3,7 @@
 defined('ABSPATH') || exit;
 
 $site_name = !empty(get_bloginfo()) ? get_bloginfo() : "this site"; 
-$site_url = get_site_url();
+$cookies_url = get_home_url(null, 'cookies');
 /* */
 $display_cookie_banner = 1;
 
@@ -44,7 +44,7 @@ if ($display_cookie_banner) {
                 Reject analytics cookies
             </button>
             <a
-                href="<?php echo esc_url($site_url);?>/cookies" id="cookie-page-link"
+                href="<?php echo esc_url($cookies_url);?>" id="cookie-page-link"
                 class="cc:cookie-link
                     cc:text-sky-700 cc:dark:text-sky-300 cc:focus:bg-yellow-400 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black
                     cc:underline cc:focus:no-underline cc:focus:outline-hidden
