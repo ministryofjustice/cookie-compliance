@@ -1,11 +1,11 @@
-/* @tailwind base;  remvoed due to default styling*/   
+@layer theme, base, components, utilities;
 
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(cc);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(cc);
 
-/*
-h1, h2, h3, h4, h5, h6 {
-    @apply  mb-10;
 
-}*/
-  
+@source "../templates/*.php";
+
+@theme {
+  --container-padding: 10rem;
+}

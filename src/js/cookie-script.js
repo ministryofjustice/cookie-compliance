@@ -56,7 +56,7 @@ window.onload = function () {
       }
 
       const confirmationBanner = document.getElementById('cookie-settings-confirmation');
-      confirmationBanner.classList.remove("hidden");
+      confirmationBanner.classList.remove("cc:hidden");
       confirmationBanner.scrollIntoView({ behavior: "instant" });
       saveButton.blur();
 
@@ -108,7 +108,7 @@ function update_gtm_consent(consent){
 }
 
 function show_cookie_banner(){
-  document.getElementById('cookie-compliance-banner').classList.remove("hidden");
+  document.getElementById('cookie-compliance-banner').classList.remove("cc:hidden");
   setTimeout(function(){
     // Tiny delay to allow the height of the element without hidden to be rendered
     window.scrollTo(0,0);
@@ -116,7 +116,7 @@ function show_cookie_banner(){
 }
 
 function hide_cookie_banner(){
-  document.getElementById("cookie-compliance-banner").classList.add("hidden");
+  document.getElementById("cookie-compliance-banner").classList.add("cc:hidden");
 }
 
 /* Store consent by cookie */
@@ -179,7 +179,7 @@ function setReturnLink() {
     let returnURL = document.referrer;
     if (document.referrer !== "") {
       returnLink.href = returnURL;
-      returnLink.classList.remove("hidden");
+      returnLink.classList.remove("cc:hidden");
     }
   }
 }

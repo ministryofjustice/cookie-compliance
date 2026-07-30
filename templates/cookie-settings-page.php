@@ -21,8 +21,13 @@ if (!function_exists('cookie_compliance_block_part')) {
 }
 
 $is_block_theme = function_exists('wp_is_block_theme') && wp_is_block_theme();
+$support_dark_mode = false;
 
 if ($is_block_theme) {
+
+    // Assume all block themes support dark mode and non-block themes don't
+    $support_dark_mode = true;
+
     // Render the template parts before <head>, so blocks inside them can still
     // enqueue their styles in wp_head(). Core does the same in
     // wp-includes/template-canvas.php.
@@ -46,89 +51,94 @@ if ($is_block_theme) {
 }
 ?>
 
-<div id="cookie-settings-page" class="px-3 text-lg">
-    <div id="cookie-settings-confirmation" class="mt-8 mb-8 hidden w-full w-max-[666px] dark:text-white">
-      <div class="bg-green-800 dark:bg-green-600 border-solid border-4 border-green-800 dark:border-green-600" role="alert">
+<div id="cookie-settings-page" class="cc:px-3 cc:text-lg">
+    <div id="cookie-settings-confirmation" class="cc:mt-8 cc:mb-8 cc:hidden cc:w-full cc:w-max-[666px] <?php if ($support_dark_mode) echo "cc:!dark:text-white"; ?>">
+    <div class="cc:bg-green-800 cc:border-solid cc:border-4 cc:border-green-800 <?php if ($support_dark_mode) echo "cc:dark:bg-[#429b34] cc:dark:border-[#429b34]";?>" role="alert">
         <div>
-          <h2 class="text-white text-lg pt-[5px] pb-[5px] pl-[20px] m-0 has-text-color">Success</h2>
+        <h2 class="cc:text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:m-0 has-text-color <?php if ($support_dark_mode) echo "cc:dark:text-black"; ?>">Success</h2>
         </div>
-        <div class="bg-white dark:bg-neutral-700 p-[20px]">
-            <p class="m-0 font-bold">You&rsquo;ve set your cookie preferences. <a id="cookie-confirmation-return" class='text-green-800 dark:text-green-400 visited:text-green-800 dark:visited:text-green-400 hover:text-green-900 dark:hover:text-green-200 hidden' href='#'>Go back to the page you were looking at.</a></p>
+        <div class="cc:bg-white cc:p-[20px] <?php if ($support_dark_mode) echo "cc:dark:bg-neutral-700"; ?> ">
+            <p class="cc:!m-0 cc:font-bold">
+                You&rsquo;ve set your cookie preferences.
+                <a id="cookie-confirmation-return" class='cc:hidden' href='#'>
+                    Go back to the page you were looking at.
+                </a>
+            </p>
         </div>
-      </div>
+    </div>
     </div>
 
     <h1 class="wp-block-heading">Cookies</h1>
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         Cookies are small files saved on your computer, tablet or phone when you visit a website.
     </p>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         We use cookies to make this site work and collect information about how you use our service.
     </p>
 
     <h2 class="wp-block-heading">Essential cookies</h2>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         Essential cookies keep your information secure whilst you use this service.  We do not need to ask permission to use them.
     </p>
-    <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse min-w-[500px]">
+    <div class="cc:overflow-x-auto">
+        <table class="cc:w-full cc:text-left cc:border-collapse cc:min-w-[500px]">
             <thead>
                 <tr>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Cookie name
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Purpose
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         Expires
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-cookiename="cookie_consent">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         cookie_consent
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This remembers your cookie consent decision
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         1 year
                     </td>
                 </tr>
                 <tr data-cookiename="wordpress_test_cookie">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         wordpress_test_cookie
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This is used to test if your browser accepts cookies
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
                 <tr data-cookiename="PHPSESSID">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         PHPSESSID
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This is used to link your device to the information sent to the server from your browser. It is typically used to avoid you having to retype information when moving from one page to another
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
                 <tr data-cookiename="info_banner_dismissed">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         info_banner_dismissed
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This remembers if you've dismissed an information banner and prevents it from being displayed again
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
@@ -138,67 +148,67 @@ if ($is_block_theme) {
 
     <h3 class="wp-block-heading">Logged-in users</h3>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         We use additional essential cookies that only apply to users who sign in to access our service.
     </p>
 
-    <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse min-w-[500px]">
+    <div class="cc:overflow-x-auto">
+        <table class="cc:w-full cc:text-left cc:border-collapse cc:min-w-[500px]">
             <thead>
                 <tr>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Cookie name
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Purpose
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         Expires
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-cookiename="wordpress_logged_in">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         wordpress_logged_in_[hash]
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This shows the site that you’re signed in and who you are so you can access the functions you need
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser or when you sign out
                     </td>
                 </tr>
                 <tr data-cookiename="wordpress_sec">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         wordpress_sec_[hash]
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         If you are logged in as a site admin, this stores your authentication details
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser or when you sign out
                     </td>
                 </tr>
                 <tr data-cookiename="wp-settings-">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         wp-settings-{time}-[UID]
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         The number on the end [UID] is your individual user ID from the database of users
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         1 year
                     </td>
                 </tr>
                 <tr data-cookiename="wp_lang">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         wp_lang
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This remembers language settings.
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         When you close your browser
                     </td>
                 </tr>
@@ -209,36 +219,36 @@ if ($is_block_theme) {
     <h2 class="wp-block-heading">Third-party cookies</h2>
 
     <h3 class="wp-block-heading">Video streaming</h3>
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         We have no control over cookies set by third parties. You can turn them off, but not through us.
     </p>
     <h3 class="wp-block-heading">Social media</h3>
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         If you share a link to a page, the service you share it on (for example, Facebook) may set a cookie.
     </p>
 
     <h2 class="wp-block-heading">Analytics cookies</h2>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         With your permission, we use
         <a class="cookie-link
-            text-sky-700 dark:text-current focus:bg-yellow-400 hover:text-current dark:hover:no-underline focus:text-black focus:bg-yellow
-            underline focus:no-underline focus:outline-none
-            focus:shadow-[0_-2px_oklch(0.852_0.199_91.936),0_4px_#000]
+            cc:text-sky-700 cc:dark:text-current cc:focus:bg-yellow-400 cc:hover:text-current cc:dark:hover:no-underline cc:focus:text-black cc:focus:bg-yellow
+            cc:underline cc:focus:no-underline cc:focus:outline-hidden
+            cc:focus:shadow-[0_-2px_oklch(0.852_0.199_91.936),0_4px_#000]
         " href="https://business.safety.google/privacy/">Google Analytics</a>
         to collect data about how you use
         this service.  This information helps us to improve our service.
     </p>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         Google is not allowed to use or share our analytics data with anyone.
     </p>
 
-    <p class="w-full w-max-[666px]">
+    <p class="cc:w-full cc:w-max-[666px]">
         Google Analytics stores anonymised information about:
     </p>
     
-    <ul class="w-full w-max-[666px]">
+    <ul class="cc:w-full cc:w-max-[666px]">
         <li>the pages you visit</li>
         <li>how long you spend on each page</li>
         <li>how you arrived at the site</li>
@@ -246,63 +256,63 @@ if ($is_block_theme) {
         <li>the device and browser you use</li>
     </ul>
     
-    <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse min-w-[500px]">
+    <div class="cc:overflow-x-auto">
+        <table class="cc:w-full cc:text-left cc:border-collapse cc:min-w-[500px]">
             <thead>
                 <tr>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Cookie name
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         Purpose
                     </th>
-                    <th scope="col" class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <th scope="col" class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         Expires
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-cookiename="_ga">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         _ga
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This is used to distinguish users and tell us if you have visited before
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         2 years
                     </td>
                 </tr>
                 <tr data-cookiename="_ga_">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         _ga_[hash]
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This is used to persist session state
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         2 years
                     </td>
                 </tr>
                 <tr data-cookiename="_gid">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         _gid
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This help us count how many people visit by tracking if you have visited before
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         24 hours
                     </td>
                 </tr>
                 <tr data-cookiename="_gat_">
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0 whitespace-nowrap">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0 cc:whitespace-nowrap">
                         _gat_[hash]
                     </td>
-                    <td class="px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         This help us to manage how we collect analytics when we have lots of visitors on the site at one time
                     </td>
-                    <td class="min-w-[75px] px-2 md:px-6 py-2 md:py-3 border-solid border-t-0 border-x-0 border-b border-current/90 first:ps-0 last:pe-0">
+                    <td class="cc:min-w-[75px] cc:px-2 cc:md:px-6 cc:py-2 cc:md:py-3 cc:border-solid cc:border-t-0 cc:border-x-0 cc:border-b cc:border-current/90 cc:first:ps-0 cc:last:pe-0">
                         10 minutes
                     </td>
                 </tr>
@@ -314,41 +324,41 @@ if ($is_block_theme) {
 
 
     <div>
-        <fieldset class="border-none px-0 mb-4">
-            <legend class="text-xl font-bold">
+        <fieldset class="cc:border-none cc:!p-0 cc:mb-4">
+            <legend class="cc:text-xl cc:font-bold">
                 Do you want to accept analytics cookies?
             </legend>
             <div id="analytical-cookies-control">
-                <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
+                <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='accept-analytical-cookies'
-                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
+                        class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='yes'
                     >
                     <label
                         for='accept-analytical-cookies'
-                        class='px-[7px] py-[10px] cursor-pointer block touch-manipulation leading-[1.25] 
-                        before:content-[""] before:box-border before:absolute before:top-[2px] before:left-[2px] before:w-[40px] before:h-[40px] before:border-solid before:border-[2px] before:rounded-full before:bg-transparent 
-                        after:content-[""] after:absolute after:top-[12px] after:left-[12px] after:w-0 after:h-0 after:border-solid after:border-[10px] after:rounded-full after:bg-black
+                        class='cc:px-[7px] cc:py-[10px] cc:cursor-pointer cc:block cc:touch-manipulation cc:leading-[1.25]
+                        cc:before:content-[""] cc:before:box-border cc:before:absolute cc:before:top-[2px] cc:before:left-[2px] cc:before:w-[40px] cc:before:h-[40px] cc:before:border-solid cc:before:border-2 cc:before:rounded-full cc:before:bg-transparent
+                        cc:after:content-[""] cc:after:absolute cc:after:top-[12px] cc:after:left-[12px] cc:after:w-0 cc:after:h-0 cc:after:border-solid cc:after:border-10 cc:after:rounded-full cc:after:bg-black
                         '>
                         Yes
                     </label>
                 </div>
-                <div class='inline-block w-full sm:w-[40%] flex flex-wrap relative mb-[10px] last:mb-0'>
+                <div class='cc:w-full cc:sm:w-[40%] cc:flex cc:flex-wrap cc:relative cc:mb-[10px] cc:last:mb-0'>
                     <input
                         id='reject-analytical-cookies'
-                        class='w-[44px] h-[44px] m-0 cursor-pointer opacity-0 [&:not(:checked)~*]:after:opacity-0 [&:focus~*]:before:border-4 [&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
+                        class='cc:w-[44px] cc:h-[44px] cc:m-0 cc:cursor-pointer cc:opacity-0 cc:[&:not(:checked)~*]:after:opacity-0 cc:[&:focus~*]:before:border-4 cc:[&:focus~*]:before:shadow-[0_0_0_4px_oklch(0.852_0.199_91.936)]'
                         type='radio'
                         name='analytical-cookie-options'
                         value='no'
                     >
                     <label
                         for='reject-analytical-cookies'
-                        class='px-[7px] py-[10px] cursor-pointer block touch-manipulation leading-[1.25] 
-                        before:content-[""] before:box-border before:absolute before:top-[2px] before:left-[2px] before:w-[40px] before:h-[40px] before:border-solid before:border-[2px] before:rounded-full before:bg-transparent 
-                        after:content-[""] after:absolute after:top-[12px] after:left-[12px] after:w-0 after:h-0 after:border-solid after:border-[10px] after:rounded-full after:bg-black
+                        class='cc:px-[7px] cc:py-[10px] cc:cursor-pointer cc:block cc:touch-manipulation cc:leading-[1.25]
+                        cc:before:content-[""] cc:before:box-border cc:before:absolute cc:before:top-[2px] cc:before:left-[2px] cc:before:w-[40px] cc:before:h-[40px] cc:before:border-solid cc:before:border-2 cc:before:rounded-full cc:before:bg-transparent
+                        cc:after:content-[""] cc:after:absolute cc:after:top-[12px] cc:after:left-[12px] cc:after:w-0 cc:after:h-0 cc:after:border-solid cc:after:border-10 cc:after:rounded-full cc:after:bg-black
                         '>
                         No
                     </label>
@@ -356,13 +366,13 @@ if ($is_block_theme) {
             </div>
         </fieldset>
     </div>
-    <input class="hidden" type="text" name="previous" step="any" id="previous" value="">
+    <input class="cc:hidden" type="text" name="previous" step="any" id="previous" value="">
     <button
         id="save-cookies-button" name="changes" type="submit" value="saved" data-module=""
-        class="text-white bg-green-900 hover:bg-green-950 dark:bg-green-800 dark:hover:bg-green-700
-                font-medium px-5 py-2.5 me-2 mb-2 cursor-pointer
-                focus:text-black focus:bg-yellow-400 dark:focus:bg-yellow-400 focus:outline-none
-                w-full sm:w-auto
+        class="cc:text-white cc:bg-green-900 cc:hover:bg-green-950 cc:dark:bg-green-800 cc:dark:hover:bg-green-700
+                cc:font-medium cc:px-5 cc:py-2.5 cc:me-2 cc:mb-2 cc:cursor-pointer
+                cc:focus:text-black cc:focus:bg-yellow-400 cc:dark:focus:bg-yellow-400 cc:focus:outline-hidden
+                cc:w-full cc:sm:w-auto
             "
     >
         Save cookie settings
