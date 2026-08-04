@@ -124,7 +124,8 @@ function hide_cookie_banner(){
 function update_cookie_consent(consent){
   var d = new Date()
   d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * 365)
-  document.cookie = 'cookie_consent=' + consent + '; path=/; expires=' + d.toGMTString()
+  const secureString = cookie_consent_object?.isSsl == 1 ? '; Secure' : '';
+  document.cookie = 'cookie_consent=' + consent + '; path=/; expires=' + d.toGMTString() + secureString
 }
 
 function get_cookie_consent() {

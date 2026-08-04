@@ -19,6 +19,7 @@ function cookie_compliance_scripts() {
         'cookie_consent_object',
         array(
             'gtmcode' => $options['gtm_code'],
+            'isSsl'   => (int) is_ssl()
         )
     );
     wp_enqueue_script('cookie-consent-script');
