@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+defined('ABSPATH') || exit;
+
 $site_name = !empty(get_bloginfo()) ? get_bloginfo() : "this site"; 
 $site_url = get_site_url();
 /* */

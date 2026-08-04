@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') || exit;
+
 // Block (FSE) themes have no header.php or footer.php, so get_header() and
 // get_footer() fall through to wp-includes/theme-compat/*.php and render the
 // old Kubrick markup. Build the document ourselves in that case.

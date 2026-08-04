@@ -4,7 +4,7 @@
 Plugin Name: Cookie Compliance
 Plugin URI: https://github.com/ministryofjustice/cookie-compliance
 Description: Cookie consent banner
-Version: 1.3.2
+Version: 1.3.3
 Author: Ministry of Justice
 Author URI: https://github.com/ministryofjustice
 Text Domain: cookie-compliance
@@ -12,6 +12,11 @@ Domain Path: /languages
 License: MIT
 
 */
+
+defined('ABSPATH') || exit;
+
+// Define the plugin version - to clear asset cache on plugin updates.
+define('COOKIE_COMPLIANCE_VERSION', get_file_data(__FILE__, array('Version' => 'Version'), false)['Version']);
 
 include 'inc/settings.php';
 

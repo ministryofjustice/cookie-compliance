@@ -1,15 +1,16 @@
 <?php
 
+defined('ABSPATH') || exit;
 
 function cookie_compliance_scripts() {  
     
-    wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__));
+    wp_register_style('cookie-compliance-tailwind', plugins_url('../dist/tailwind.css', __FILE__), [], COOKIE_COMPLIANCE_VERSION);
     wp_enqueue_style("cookie-compliance-tailwind");
 
-    wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__));
+    wp_register_style('cookie-compliance-styles', plugins_url('../dist/styles.css', __FILE__), [], COOKIE_COMPLIANCE_VERSION);
     wp_enqueue_style("cookie-compliance-styles");
 
-    wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__));
+    wp_register_script('cookie-consent-script', plugins_url('../dist/cookie-script.js', __FILE__), [], COOKIE_COMPLIANCE_VERSION);
 
     $options = get_option('cookie_compliance_settings');
 
