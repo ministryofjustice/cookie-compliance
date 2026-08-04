@@ -10,7 +10,7 @@ $display_cookie_banner = 1;
 if ($display_cookie_banner) {
 ?>
 <div id="cookie-compliance-banner" data-nosnippet="true" class="cc:print:hidden cc:text-black cc:dark:text-white cc:bg-gray-200 cc:dark:bg-neutral-700 cc:w-full cc:py-[1rem] cc:hidden cc:box-border cc:[&_*]:box-border">
-    <div class="cc:mx-auto cc:w-[var(--cookie-banner-container-width,960px)] cc:max-w-[var(--cookie-banner-container-max-width,90%)]">
+    <div class="cc:mx-auto cc:w-[var(--cookie-banner-container-width,960px)] cc:max-w-[var(--cc-container-max-width,90%)]">
         <h2 class="cc:text-2xl cc:font-bold">
             Cookies on <?php echo esc_html($site_name);?>
         </h2>
