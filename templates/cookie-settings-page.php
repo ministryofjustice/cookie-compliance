@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') || exit;
+
 // Block (FSE) themes have no header.php or footer.php, so get_header() and
 // get_footer() fall through to wp-includes/theme-compat/*.php and render the
 // old Kubrick markup. Build the document ourselves in that case.
@@ -51,11 +54,11 @@ if ($is_block_theme) {
 }
 ?>
 
-<div id="cookie-settings-page" class="cc:px-3 cc:text-lg">
+<div id="cookie-settings-page" class="<?= esc_attr(apply_filters('cookie_compliance_settings_page_class', 'cc:px-3 cc:text-lg')) ?>">
     <div id="cookie-settings-confirmation" class="cc:mt-8 cc:mb-8 cc:hidden cc:w-full cc:w-max-[666px] <?php if ($support_dark_mode) echo "cc:!dark:text-white"; ?>">
     <div class="cc:bg-green-800 cc:border-solid cc:border-4 cc:border-green-800 <?php if ($support_dark_mode) echo "cc:dark:bg-[#429b34] cc:dark:border-[#429b34]";?>" role="alert">
         <div>
-        <h2 class="cc:text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:m-0 has-text-color <?php if ($support_dark_mode) echo "cc:dark:text-black"; ?>">Success</h2>
+        <h2 class="cc:!text-white cc:text-lg cc:pt-[5px] cc:pb-[5px] cc:pl-[20px] cc:!m-0 has-text-color <?php if ($support_dark_mode) echo "cc:dark:text-black"; ?>">Success</h2>
         </div>
         <div class="cc:bg-white cc:p-[20px] <?php if ($support_dark_mode) echo "cc:dark:bg-neutral-700"; ?> ">
             <p class="cc:!m-0 cc:font-bold">
@@ -370,7 +373,7 @@ if ($is_block_theme) {
     <button
         id="save-cookies-button" name="changes" type="submit" value="saved" data-module=""
         class="cc:text-white cc:bg-green-900 cc:hover:bg-green-950 cc:dark:bg-green-800 cc:dark:hover:bg-green-700
-                cc:font-medium cc:px-5 cc:py-2.5 cc:me-2 cc:mb-2 cc:cursor-pointer
+                cc:font-medium cc:text-lg cc:px-5 cc:py-2.5 cc:me-2 cc:mb-2 cc:cursor-pointer
                 cc:focus:text-black cc:focus:bg-yellow-400 cc:dark:focus:bg-yellow-400 cc:focus:outline-hidden
                 cc:w-full cc:sm:w-auto
             "

@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') || exit;
+
 add_action('admin_menu', 'cookie_compliance_settings_page');
 add_action('admin_init', 'cookie_compliance_settings_init');
 
