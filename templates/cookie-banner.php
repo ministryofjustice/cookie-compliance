@@ -26,7 +26,7 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-accept" type="submit"
                 class="cc:text-white cc:bg-green-900 cc:hover:bg-green-950 cc:dark:bg-green-800 cc:dark:hover:bg-green-700
-                    cc:font-medium cc:text-lg cc:px-5 cc:py-2.5 cc:me-2 cc:mb-2 cc:cursor-pointer
+                    cc:font-medium cc:text-lg cc:px-5 cc:py-2.5 cc:me-2 cc:!mb-2 cc:cursor-pointer
                     cc:focus:text-black cc:focus:bg-yellow-400 cc:dark:focus:bg-yellow-400 cc:focus:outline-hidden
                     cc:w-full cc:sm:w-auto
                 "
@@ -36,7 +36,7 @@ if ($display_cookie_banner) {
             <button
                 id="cookie-decline" type="submit"
                 class="cc:text-white cc:bg-green-900 cc:hover:bg-green-950 cc:dark:bg-green-800 cc:dark:hover:bg-green-700
-                    cc:font-medium cc:text-lg cc:px-5 cc:py-2.5 cc:me-2 cc:mb-2 cc:cursor-pointer
+                    cc:font-medium cc:text-lg cc:px-5 cc:py-2.5 cc:me-2 cc:!mb-2 cc:cursor-pointer
                     cc:focus:text-black cc:focus:bg-yellow-400 cc:dark:focus:bg-yellow-400 cc:focus:outline-hidden
                     cc:w-full cc:sm:w-auto
                 "
