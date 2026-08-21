@@ -44,7 +44,7 @@ if ($display_cookie_banner) { ?>
 			</button>
 			<a
 				href="<?php echo esc_url($site_url); ?>/cookies" id="cookie-page-link"
-				class="cc:cookie-link
+				class="cookie-link
 					cc:text-sky-700 cc:dark:text-sky-300 cc:focus:bg-yellow-400 cc:hover:text-sky-900 cc:dark:hover:text-sky-200 cc:focus:text-black
 					cc:text-lg cc:underline cc:focus:no-underline cc:focus:outline-hidden
 					cc:px-3 cc:py-2.5
