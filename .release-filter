@@ -1,0 +1,13 @@
+# Files shipped in the release and preview zips.
+# rsync filter rules: checked top to bottom, first match wins.
+# "***" means the folder and everything in it; "- *" drops anything not listed.
++ /cookie-compliance.php
++ /composer.json
++ /README.md
++ /inc/***
++ /templates/***
+# Compiled CSS and the cookie script. src/ is build input; source maps aren't
+# needed on sites.
+- /dist/**.map
++ /dist/***
+- *
